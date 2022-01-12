@@ -1,0 +1,1428 @@
+Madurez As screen:
+
+    Label12 As label:
+        Height: =25
+        Size: =10
+        Text: =Gallery1.Selected.'Num Proyecto Lean'
+        X: =675
+        ZIndex: =1
+
+    Label13 As label:
+        Fill: =RGBA(253, 222, 207, 1)
+        Height: =30
+        Size: =10
+        Text: ="¿Organigrama del proyecto y directorio (contactos Proyecto, Cliente, Mutua, etc.) visible?"
+        Width: =400
+        X: =15
+        Y: =120
+        ZIndex: =2
+
+    Icon14 As icon.ChevronLeft:
+        Height: =50
+        Icon: =Icon.ChevronLeft
+        OnSelect: =Back()
+        Width: =50
+        X: =6
+        Y: =6
+        ZIndex: =3
+
+    Dropdown2 As dropdown:
+        Height: =30
+        Items: =["Si","No"]
+        Size: =10
+        Width: =85
+        X: =420
+        Y: =120
+        ZIndex: =4
+
+    Label14 As label:
+        Align: =Align.Center
+        Fill: =RGBA(253, 222, 207, 1)
+        Height: =30
+        Size: =10
+        Text: ="0%"
+        Width: =50
+        X: =510
+        Y: =120
+        ZIndex: =5
+
+    Label13_1 As label:
+        Fill: =RGBA(253, 222, 207, 1)
+        Height: =30
+        Size: =10
+        Text: ="¿Existen controles visuales generales/básicos (HSQE, Incidencias (interrupciones, calidad,…), nº operarios, etc.)?"
+        Width: =400
+        X: =15
+        Y: =150
+        ZIndex: =6
+
+    Dropdown2_1 As dropdown:
+        Height: =30
+        Items: =["Si","No"]
+        Size: =10
+        Width: =85
+        X: =420
+        Y: =150
+        ZIndex: =7
+
+    Label14_1 As label:
+        Align: =Align.Center
+        Fill: =RGBA(253, 222, 207, 1)
+        Height: =30
+        Size: =10
+        Text: =If(Dropdown2_1.SelectedText.Value="Si","40%","0%")
+        Width: =50
+        X: =510
+        Y: =150
+        ZIndex: =8
+
+    Label13_2 As label:
+        Fill: =RGBA(253, 222, 207, 1)
+        Height: =30
+        Size: =10
+        Text: ="¿Existe un CV del Rendimiento?"
+        Width: =400
+        X: =15
+        Y: =180
+        ZIndex: =9
+
+    Dropdown2_4 As dropdown:
+        Height: =30
+        Items: =["Si","No"]
+        Size: =10
+        Width: =85
+        X: =420
+        Y: =180
+        ZIndex: =10
+
+    Label14_2 As label:
+        Align: =Align.Center
+        Fill: =RGBA(253, 222, 207, 1)
+        Height: =30
+        Size: =10
+        Text: =If(Dropdown2_4.SelectedText.Value="Si","50%","0%")
+        Width: =50
+        X: =510
+        Y: =180
+        ZIndex: =11
+
+    Label13_3 As label:
+        Fill: =RGBA(253, 222, 207, 1)
+        Height: =30
+        Size: =10
+        Text: |-
+            ="¿Existen otros CV? (propios del proyecto: localización, planificación…)"
+        Width: =400
+        X: =15
+        Y: =210
+        ZIndex: =12
+
+    Dropdown2_8 As dropdown:
+        Height: =30
+        Items: =["Si","No"]
+        Size: =10
+        Width: =85
+        X: =420
+        Y: =210
+        ZIndex: =13
+
+    Label14_3 As label:
+        Align: =Align.Center
+        Fill: =RGBA(253, 222, 207, 1)
+        Height: =30
+        Size: =10
+        Text: =If(Dropdown2_8.SelectedText.Value="Si","10%","0%")
+        Width: =50
+        X: =510
+        Y: =210
+        ZIndex: =14
+
+    Label13_4 As label:
+        Fill: =RGBA(253, 222, 207, 1)
+        Height: =30
+        Size: =10
+        Text: ="¿Se actualizan los CV al menos una vez a la semana?"
+        Width: =400
+        X: =15
+        Y: =252
+        ZIndex: =15
+
+    Dropdown2_9 As dropdown:
+        Height: =30
+        Items: =["Si","No"]
+        Size: =10
+        Width: =85
+        X: =420
+        Y: =252
+        ZIndex: =16
+
+    Label14_4 As label:
+        Align: =Align.Center
+        Fill: =RGBA(253, 222, 207, 1)
+        Height: =30
+        Size: =10
+        Text: =If(Dropdown2_9.SelectedText.Value="Si","30%","0%")
+        Width: =50
+        X: =510
+        Y: =252
+        ZIndex: =17
+
+    Label13_5 As label:
+        Fill: =RGBA(253, 222, 207, 1)
+        Height: =30
+        Size: =10
+        Text: ="¿Se actualizan los CV diariamente?"
+        Width: =400
+        X: =15
+        Y: =282
+        ZIndex: =18
+
+    Dropdown2_10 As dropdown:
+        Height: =30
+        Items: =["Si","No"]
+        Size: =10
+        Width: =85
+        X: =420
+        Y: =282
+        ZIndex: =19
+
+    Label14_5 As label:
+        Align: =Align.Center
+        Fill: =RGBA(253, 222, 207, 1)
+        Height: =30
+        Size: =10
+        Text: =If(Dropdown2_10.SelectedText.Value="Si","40%","0%")
+        Width: =50
+        X: =510
+        Y: =282
+        ZIndex: =20
+
+    Label13_6 As label:
+        Fill: =RGBA(253, 222, 207, 1)
+        Height: =30
+        Size: =10
+        Text: ="¿Existe lista de acciones?"
+        Width: =400
+        X: =15
+        Y: =312
+        ZIndex: =21
+
+    Dropdown2_11 As dropdown:
+        Height: =30
+        Items: =["Si","No"]
+        Size: =10
+        Width: =85
+        X: =420
+        Y: =312
+        ZIndex: =22
+
+    Label14_6 As label:
+        Align: =Align.Center
+        Fill: =RGBA(253, 222, 207, 1)
+        Height: =30
+        Size: =10
+        Text: =If(Dropdown2_11.SelectedText.Value="Si","30%","0%")
+        Width: =50
+        X: =510
+        Y: =312
+        ZIndex: =23
+
+    Label13_7 As label:
+        Fill: =RGBA(253, 222, 207, 1)
+        Height: =30
+        Size: =10
+        Text: ="¿Se transfieren los problemas importantes/recurrentes a la lista de acciones?"
+        Width: =400
+        X: =15
+        Y: =354
+        ZIndex: =24
+
+    Dropdown2_12 As dropdown:
+        Height: =30
+        Items: =["Si","No"]
+        Size: =10
+        Width: =85
+        X: =420
+        Y: =354
+        ZIndex: =25
+
+    Label14_7 As label:
+        Align: =Align.Center
+        Fill: =RGBA(253, 222, 207, 1)
+        Height: =30
+        Size: =10
+        Text: =If(And(Dropdown2_11.SelectedText.Value="Si",Dropdown2_12.SelectedText.Value="Si"),"40%","0%")
+        Width: =50
+        X: =510
+        Y: =354
+        ZIndex: =26
+
+    Label13_8 As label:
+        Fill: =RGBA(253, 222, 207, 1)
+        Height: =30
+        Size: =10
+        Text: ="Los problemas registrados que no puede resolver el equipo de proyecto, ¿se escalan y se siguen en lista de acciones?"
+        Width: =400
+        X: =15
+        Y: =384
+        ZIndex: =27
+
+    Dropdown2_13 As dropdown:
+        Height: =30
+        Items: =["Si","No"]
+        Size: =10
+        Width: =85
+        X: =420
+        Y: =384
+        ZIndex: =28
+
+    Label14_8 As label:
+        Align: =Align.Center
+        Fill: =RGBA(253, 222, 207, 1)
+        Height: =30
+        Size: =10
+        Text: =If(And(Dropdown2_11.SelectedText.Value="Si",Dropdown2_13.SelectedText.Value="Si"),"40%","0%")
+        Width: =50
+        X: =510
+        Y: =384
+        ZIndex: =29
+
+    Label13_9 As label:
+        Fill: =RGBA(253, 222, 207, 1)
+        Height: =30
+        Size: =10
+        Text: ="¿Hay reunión diaria de Actualización y Análisis de los CV?"
+        Width: =400
+        X: =15
+        Y: =426
+        ZIndex: =30
+
+    Dropdown2_14 As dropdown:
+        Height: =30
+        Items: =["Si","No"]
+        Size: =10
+        Width: =85
+        X: =420
+        Y: =426
+        ZIndex: =31
+
+    Label14_9 As label:
+        Align: =Align.Center
+        Fill: =RGBA(253, 222, 207, 1)
+        Height: =30
+        Size: =10
+        Text: =If(And(Dropdown2_4.SelectedText.Value="Si",Dropdown2_14.SelectedText.Value="Si"),"20%","0%")
+        Width: =50
+        X: =510
+        Y: =426
+        ZIndex: =32
+
+    Label13_10 As label:
+        Fill: =RGBA(253, 222, 207, 1)
+        Height: =30
+        Size: =10
+        Text: ="¿Hay reunión mensual de Seguimiento con RUN/ Resp. P y se revisa la lista de acciones?"
+        Width: =400
+        X: =15
+        Y: =456
+        ZIndex: =33
+
+    Dropdown2_15 As dropdown:
+        Height: =30
+        Items: =["Si","No"]
+        Size: =10
+        Width: =85
+        X: =420
+        Y: =456
+        ZIndex: =34
+
+    Label14_10 As label:
+        Align: =Align.Center
+        Fill: =RGBA(253, 222, 207, 1)
+        Height: =30
+        Size: =10
+        Text: =If(Dropdown2_15.SelectedText.Value="Si","40%","0%")
+        Width: =50
+        X: =510
+        Y: =456
+        ZIndex: =35
+
+    Button1 As button:
+        OnSelect: =Set(MadurezCV,Label16_5);Set(MadurezPRD,Label16_11);Set(MadurezTEL,Label16_17);Back()
+        Text: ="GUARDAR"
+        X: =1188
+        Y: =18
+        ZIndex: =42
+
+    Label13_11 As label:
+        Fill: =RGBA(209, 232, 178, 1)
+        Height: =30
+        Size: =10
+        Text: ="¿Hay reunión diaria de planificación del dia siguiente al final de la jornada de trabajo?"
+        Width: =600
+        X: =600
+        Y: =120
+        ZIndex: =43
+
+    Dropdown2_16 As dropdown:
+        Height: =30
+        Items: =["Si","No"]
+        Size: =10
+        Width: =85
+        X: =1205
+        Y: =120
+        ZIndex: =44
+
+    Label14_11 As label:
+        Align: =Align.Center
+        Fill: =RGBA(209, 232, 178, 1)
+        Height: =30
+        Size: =10
+        Text: =If(Dropdown2_16.SelectedText.Value="Si","50%","0%")
+        Width: =50
+        X: =1300
+        Y: =120
+        ZIndex: =45
+
+    Label13_12 As label:
+        Fill: =RGBA(209, 232, 178, 1)
+        Height: =30
+        Size: =10
+        Text: ="¿Se mencionan las tareas de mañana y se hace una pregunta general si todo está bien.?"
+        Width: =600
+        X: =600
+        Y: =150
+        ZIndex: =46
+
+    Dropdown2_17 As dropdown:
+        Height: =30
+        Items: =["Si","No"]
+        Size: =10
+        Width: =85
+        X: =1205
+        Y: =150
+        ZIndex: =47
+
+    Label14_12 As label:
+        Align: =Align.Center
+        Fill: =RGBA(209, 232, 178, 1)
+        Height: =30
+        Size: =10
+        Text: =If(Dropdown2_17.SelectedText.Value="Si","25%","0%")
+        Width: =50
+        X: =1300
+        Y: =150
+        ZIndex: =48
+
+    Label13_13 As label:
+        Fill: =RGBA(209, 232, 178, 1)
+        Height: =30
+        Size: =10
+        Text: ="¿Se hace análisis diario de los problemas registrados en la lista de acciones?"
+        Width: =600
+        X: =600
+        Y: =180
+        ZIndex: =49
+
+    Dropdown2_18 As dropdown:
+        Height: =30
+        Items: =["Si","No"]
+        Size: =10
+        Width: =85
+        X: =1205
+        Y: =180
+        ZIndex: =50
+
+    Label14_13 As label:
+        Align: =Align.Center
+        Fill: =RGBA(209, 232, 178, 1)
+        Height: =30
+        Size: =10
+        Text: =If(Dropdown2_18.SelectedText.Value="Si","20%","0%")
+        Width: =50
+        X: =1300
+        Y: =180
+        ZIndex: =51
+
+    Label13_14 As label:
+        Fill: =RGBA(209, 232, 178, 1)
+        Height: =30
+        Size: =10
+        Text: ="¿Se compara el rendimiento real obtenido frente al rendimiento planificado del proceso (OTP)? "
+        Width: =600
+        X: =600
+        Y: =222
+        ZIndex: =52
+
+    Dropdown2_19 As dropdown:
+        Height: =30
+        Items: =["Si","No"]
+        Size: =10
+        Width: =85
+        X: =1205
+        Y: =222
+        ZIndex: =53
+
+    Label14_14 As label:
+        Align: =Align.Center
+        Fill: =RGBA(209, 232, 178, 1)
+        Height: =30
+        Size: =10
+        Text: =If(Dropdown2_19.SelectedText.Value="Si","35%","0%")
+        Width: =50
+        X: =1300
+        Y: =222
+        ZIndex: =54
+
+    Label13_15 As label:
+        Fill: =RGBA(209, 232, 178, 1)
+        Height: =30
+        Size: =10
+        Text: ="¿Se planifican las tareas de mañana en base a los rendimientos actuales y/o problemas detectados?"
+        Width: =600
+        X: =600
+        Y: =252
+        ZIndex: =55
+
+    Dropdown2_20 As dropdown:
+        Height: =30
+        Items: =["Si","No"]
+        Size: =10
+        Width: =85
+        X: =1205
+        Y: =252
+        ZIndex: =56
+
+    Label14_15 As label:
+        Align: =Align.Center
+        Fill: =RGBA(209, 232, 178, 1)
+        Height: =30
+        Size: =10
+        Text: =If(Dropdown2_20.SelectedText.Value="Si","33%","0%")
+        Width: =50
+        X: =1300
+        Y: =252
+        ZIndex: =57
+
+    Label13_16 As label:
+        Fill: =RGBA(209, 232, 178, 1)
+        Height: =30
+        Size: =10
+        Text: =" ¿Se realiza análisis de la lista de acciones para identificar problemas relevantes y/o patrones?"
+        Width: =600
+        X: =600
+        Y: =282
+        ZIndex: =58
+
+    Dropdown2_21 As dropdown:
+        Height: =30
+        Items: =["Si","No"]
+        Size: =10
+        Width: =85
+        X: =1205
+        Y: =282
+        ZIndex: =59
+
+    Label14_16 As label:
+        Align: =Align.Center
+        Fill: =RGBA(209, 232, 178, 1)
+        Height: =30
+        Size: =10
+        Text: =If(Dropdown2_21.SelectedText.Value="Si","10%","-10%")
+        Width: =50
+        X: =1300
+        Y: =282
+        ZIndex: =60
+
+    Label13_17 As label:
+        Fill: =RGBA(209, 232, 178, 1)
+        Height: =30
+        Size: =10
+        Text: ="¿Se registra la comparación entre Objetivo planificado y real? Tareas y Rendimientos mediante uso de Controles visuales"
+        Width: =600
+        X: =600
+        Y: =324
+        ZIndex: =61
+
+    Dropdown2_22 As dropdown:
+        Height: =30
+        Items: =["Si","No"]
+        Size: =10
+        Width: =85
+        X: =1205
+        Y: =324
+        ZIndex: =62
+
+    Label14_17 As label:
+        Align: =Align.Center
+        Fill: =RGBA(209, 232, 178, 1)
+        Height: =30
+        Size: =10
+        Text: =If(And(Dropdown2_22.SelectedText.Value="No",Dropdown2_4.SelectedText.Value="No"),"-96%",If(And(Dropdown2_22.SelectedText.Value="Si",Dropdown2_4.SelectedText.Value="Si"),"33%",If(And(Dropdown2_22.SelectedText.Value="Si",Dropdown2_4.SelectedText.Value="No"),"-33%",If(And(Dropdown2_22.SelectedText.Value="No",Dropdown2_4.SelectedText.Value="Si"),"-30%"))))
+        Width: =50
+        X: =1300
+        Y: =324
+        ZIndex: =63
+
+    Label13_18 As label:
+        Fill: =RGBA(209, 232, 178, 1)
+        Height: =30
+        Size: =10
+        Text: ="¿Se analizan y registran las causas raiz de los problemas relevantes?"
+        Width: =600
+        X: =600
+        Y: =354
+        ZIndex: =64
+
+    Dropdown2_23 As dropdown:
+        Height: =30
+        Items: =["Si","No"]
+        Size: =10
+        Width: =85
+        X: =1205
+        Y: =354
+        ZIndex: =65
+
+    Label14_18 As label:
+        Align: =Align.Center
+        Fill: =RGBA(209, 232, 178, 1)
+        Height: =30
+        Size: =10
+        Text: =If(Dropdown2_23.SelectedText.Value="Si","20%","0%")
+        Width: =50
+        X: =1300
+        Y: =354
+        ZIndex: =66
+
+    Label13_19 As label:
+        Fill: =RGBA(209, 232, 178, 1)
+        Height: =30
+        Size: =10
+        Text: ="¿Todos los requisitos para las tareas del mañana se repasan, documentan y verifican sistemáticamente? (permisos/autorizaciones, accesos, herramientas/maquinaria especial, etc)"
+        Width: =600
+        X: =600
+        Y: =384
+        ZIndex: =67
+
+    Dropdown2_24 As dropdown:
+        Height: =30
+        Items: =["Si","No"]
+        Size: =10
+        Width: =85
+        X: =1205
+        Y: =384
+        ZIndex: =68
+
+    Label14_19 As label:
+        Align: =Align.Center
+        Fill: =RGBA(209, 232, 178, 1)
+        Height: =30
+        Size: =10
+        Text: =If(Dropdown2_24.SelectedText.Value="Si","40%","0%")
+        Width: =50
+        X: =1300
+        Y: =384
+        ZIndex: =69
+
+    Label13_20 As label:
+        Fill: =RGBA(209, 232, 178, 1)
+        Height: =30
+        Size: =10
+        Text: ="¿Son las reuniones diarias de rendición de cuentas una rutina del proyecto?"
+        Width: =600
+        X: =600
+        Y: =426
+        ZIndex: =70
+
+    Dropdown2_25 As dropdown:
+        Height: =30
+        Items: =["Si","No"]
+        Size: =10
+        Width: =85
+        X: =1205
+        Y: =426
+        ZIndex: =71
+
+    Label14_20 As label:
+        Align: =Align.Center
+        Fill: =RGBA(209, 232, 178, 1)
+        Height: =30
+        Size: =10
+        Text: =If(Dropdown2_25.SelectedText.Value="Si","30%","0%")
+        Width: =50
+        X: =1300
+        Y: =426
+        ZIndex: =72
+
+    Label13_21 As label:
+        Fill: =RGBA(209, 232, 178, 1)
+        Height: =30
+        Size: =10
+        Text: ="¿Los líderes están trabajando activamente en la estabilización y la mejora?"
+        Width: =600
+        X: =600
+        Y: =456
+        ZIndex: =73
+
+    Dropdown2_26 As dropdown:
+        Height: =30
+        Items: =["Si","No"]
+        Size: =10
+        Width: =85
+        X: =1205
+        Y: =456
+        ZIndex: =74
+
+    Label14_21 As label:
+        Align: =Align.Center
+        Fill: =RGBA(209, 232, 178, 1)
+        Height: =30
+        Size: =10
+        Text: =If(Dropdown2_26.SelectedText.Value="Si","30%","0%")
+        Width: =50
+        X: =1300
+        Y: =456
+        ZIndex: =75
+
+    Label13_22 As label:
+        Fill: =RGBA(204, 231, 246, 1)
+        Height: =30
+        Size: =10
+        Text: ="¿Existe Organigrama del Proyecto?"
+        Width: =400
+        X: =15
+        Y: =501
+        ZIndex: =82
+
+    Dropdown2_27 As dropdown:
+        DisplayMode: =DisplayMode.View
+        Height: =30
+        Items: =Dropdown2.SelectedText
+        Size: =10
+        Width: =85
+        X: =420
+        Y: =501
+        ZIndex: =83
+
+    Label14_22 As label:
+        Align: =Align.Center
+        Fill: =RGBA(204, 231, 246, 1)
+        Height: =30
+        Size: =10
+        Text: =If(Dropdown2_27.SelectedText.Value="Si","5%","0%")
+        Width: =50
+        X: =510
+        Y: =501
+        ZIndex: =84
+
+    Label13_23 As label:
+        Fill: =RGBA(204, 231, 246, 1)
+        Height: =30
+        Size: =10
+        Text: ="¿Están desglosadas la tareas?"
+        Width: =400
+        X: =15
+        Y: =531
+        ZIndex: =85
+
+    Dropdown2_28 As dropdown:
+        Height: =30
+        Items: =["Si","No"]
+        Size: =10
+        Width: =85
+        X: =420
+        Y: =531
+        ZIndex: =86
+
+    Label14_23 As label:
+        Align: =Align.Center
+        Fill: =RGBA(204, 231, 246, 1)
+        Height: =30
+        Size: =10
+        Text: =If(Dropdown2_28.SelectedText.Value="Si","20%","0%")
+        Width: =50
+        X: =510
+        Y: =531
+        ZIndex: =87
+
+    Label13_24 As label:
+        Fill: =RGBA(204, 231, 246, 1)
+        Height: =30
+        Size: =10
+        Text: ="¿Están asignadas y comunicadas las tareas?"
+        Width: =400
+        X: =15
+        Y: =561
+        ZIndex: =88
+
+    Dropdown2_29 As dropdown:
+        Height: =30
+        Items: =["Si","No"]
+        Size: =10
+        Width: =85
+        X: =420
+        Y: =561
+        ZIndex: =89
+
+    Label14_24 As label:
+        Align: =Align.Center
+        Fill: =RGBA(204, 231, 246, 1)
+        Height: =30
+        Size: =10
+        Text: =If(Dropdown2_29.SelectedText.Value="Si","20%","0%")
+        Width: =50
+        X: =510
+        Y: =561
+        ZIndex: =90
+
+    Label13_25 As label:
+        Fill: =RGBA(204, 231, 246, 1)
+        Height: =30
+        Size: =10
+        Text: ="¿Existen reuniones diarias de planificación/producción?"
+        Width: =400
+        X: =15
+        Y: =591
+        ZIndex: =91
+
+    Dropdown2_30 As dropdown:
+        DisplayMode: =DisplayMode.View
+        Height: =30
+        Items: =Dropdown2_16.SelectedText
+        Size: =10
+        Width: =85
+        X: =420
+        Y: =591
+        ZIndex: =92
+
+    Label14_25 As label:
+        Align: =Align.Center
+        Fill: =RGBA(204, 231, 246, 1)
+        Height: =30
+        Size: =10
+        Text: =If(Dropdown2_30.SelectedText.Value="Si","45%","0%")
+        Width: =50
+        X: =510
+        Y: =591
+        ZIndex: =93
+
+    Label13_26 As label:
+        Fill: =RGBA(204, 231, 246, 1)
+        Height: =30
+        Size: =10
+        Text: ="¿Las reuniones diarias tienen hora fija y agenda definida?"
+        Width: =400
+        X: =15
+        Y: =633
+        ZIndex: =94
+
+    Dropdown2_31 As dropdown:
+        Height: =30
+        Items: =["Si","No"]
+        Size: =10
+        Width: =85
+        X: =420
+        Y: =633
+        ZIndex: =95
+
+    Label14_26 As label:
+        Align: =Align.Center
+        Fill: =RGBA(204, 231, 246, 1)
+        Height: =30
+        Size: =10
+        Text: =If(Dropdown2_31.SelectedText.Value="Si","25%","0%")
+        Width: =50
+        X: =510
+        Y: =633
+        ZIndex: =96
+
+    Label13_27 As label:
+        Fill: =RGBA(204, 231, 246, 1)
+        Height: =30
+        Size: =10
+        Text: ="¿Todos los responsables (desde encargados hasta jefe de producción) participan en las reuniones?"
+        Width: =400
+        X: =15
+        Y: =663
+        ZIndex: =97
+
+    Dropdown2_32 As dropdown:
+        Height: =30
+        Items: =["Si","No"]
+        Size: =10
+        Width: =85
+        X: =420
+        Y: =663
+        ZIndex: =98
+
+    Label14_27 As label:
+        Align: =Align.Center
+        Fill: =RGBA(204, 231, 246, 1)
+        Height: =30
+        Size: =10
+        Text: =If(Dropdown2_32.SelectedText.Value="Si","20%","0%")
+        Width: =50
+        X: =510
+        Y: =663
+        ZIndex: =99
+
+    Label13_28 As label:
+        Fill: =RGBA(204, 231, 246, 1)
+        Height: =30
+        Size: =10
+        Text: ="¿Las reuniones diarias utilizan formatos/controles visuales?"
+        Width: =400
+        X: =15
+        Y: =693
+        ZIndex: =100
+
+    Dropdown2_33 As dropdown:
+        Height: =30
+        Items: =["Si","No"]
+        Size: =10
+        Width: =85
+        X: =420
+        Y: =693
+        ZIndex: =101
+
+    Label14_28 As label:
+        Align: =Align.Center
+        Fill: =RGBA(204, 231, 246, 1)
+        Height: =30
+        Size: =10
+        Text: =If(Dropdown2_33.SelectedText.Value="Si","20%","0%")
+        Width: =50
+        X: =510
+        Y: =693
+        ZIndex: =102
+
+    Label13_29 As label:
+        Fill: =RGBA(204, 231, 246, 1)
+        Height: =30
+        Size: =10
+        Text: ="¿Se mantienen los cotroles visuales?"
+        Width: =400
+        X: =15
+        Y: =723
+        ZIndex: =103
+
+    Dropdown2_34 As dropdown:
+        DisplayMode: =DisplayMode.View
+        Height: =30
+        Items: =Dropdown2_9.SelectedText
+        Size: =10
+        Width: =85
+        X: =420
+        Y: =723
+        ZIndex: =104
+
+    Label14_29 As label:
+        Align: =Align.Center
+        Fill: =RGBA(204, 231, 246, 1)
+        Height: =30
+        Size: =10
+        Text: =If(Dropdown2_34.SelectedText.Value="Si","25%","0%")
+        Width: =50
+        X: =510
+        Y: =723
+        ZIndex: =105
+
+    Label13_30 As label:
+        Fill: =RGBA(204, 231, 246, 1)
+        Height: =30
+        Size: =10
+        Text: ="¿Todos los responsables del proyecto siguen y utilizan su trabajo estándar como una rutina de trabajo diaria natural? (Todos saben lo que tienen que hacer y lo hacen.)"
+        Width: =600
+        X: =600
+        Y: =501
+        ZIndex: =106
+
+    Dropdown2_35 As dropdown:
+        Height: =30
+        Items: =["Si","No"]
+        Size: =10
+        Width: =85
+        X: =1205
+        Y: =501
+        ZIndex: =107
+
+    Label14_30 As label:
+        Align: =Align.Center
+        Fill: =RGBA(204, 231, 246, 1)
+        Height: =30
+        Size: =10
+        Text: =If(Dropdown2_35.SelectedText.Value="Si","20%","0%")
+        Width: =50
+        X: =1300
+        Y: =501
+        ZIndex: =108
+
+    Label13_31 As label:
+        Fill: =RGBA(204, 231, 246, 1)
+        Height: =30
+        Size: =10
+        Text: ="¿El trabajo estándar de los responsables se centra en seguir y cumplir con los parámetros del proyecto?"
+        Width: =600
+        X: =600
+        Y: =531
+        ZIndex: =109
+
+    Dropdown2_36 As dropdown:
+        Height: =30
+        Items: =["Si","No"]
+        Size: =10
+        Width: =85
+        X: =1205
+        Y: =531
+        ZIndex: =110
+
+    Label14_31 As label:
+        Align: =Align.Center
+        Fill: =RGBA(204, 231, 246, 1)
+        Height: =30
+        Size: =10
+        Text: =If(Dropdown2_36.SelectedText.Value="Si","20%","0%")
+        Width: =50
+        X: =1300
+        Y: =531
+        ZIndex: =111
+
+    Label13_32 As label:
+        Fill: =RGBA(204, 231, 246, 1)
+        Height: =30
+        Size: =10
+        Text: ="¿El trabajo estándar de los responsables se centra además en mejorar el proceso?"
+        Width: =600
+        X: =600
+        Y: =561
+        ZIndex: =112
+
+    Dropdown2_37 As dropdown:
+        DisplayMode: =DisplayMode.View
+        Height: =30
+        Items: =Dropdown2_26.SelectedText
+        Size: =10
+        Width: =85
+        X: =1205
+        Y: =561
+        ZIndex: =113
+
+    Label14_32 As label:
+        Align: =Align.Center
+        Fill: =RGBA(204, 231, 246, 1)
+        Height: =30
+        Size: =10
+        Text: =If(Dropdown2_37.SelectedText.Value="Si","0%","0%")
+        Width: =50
+        X: =1300
+        Y: =561
+        ZIndex: =114
+
+    Label13_33 As label:
+        Fill: =RGBA(204, 231, 246, 1)
+        Height: =30
+        Size: =10
+        Text: ="¿Se realizan reuniones de supervisión del TEL con subordinados? (se transmite la información a todos los niveles del proyecto)"
+        Width: =600
+        X: =600
+        Y: =591
+        ZIndex: =121
+
+    Dropdown2_38 As dropdown:
+        Height: =30
+        Items: =["Si","No"]
+        Size: =10
+        Width: =85
+        X: =1205
+        Y: =591
+        ZIndex: =122
+
+    Label14_33 As label:
+        Align: =Align.Center
+        Fill: =RGBA(204, 231, 246, 1)
+        Height: =30
+        Size: =10
+        Text: =If(Dropdown2_38.SelectedText.Value="Si","30%","0%")
+        Width: =50
+        X: =1300
+        Y: =591
+        ZIndex: =123
+
+    Label13_34 As label:
+        Fill: =RGBA(204, 231, 246, 1)
+        Height: =30
+        Size: =10
+        Text: ="¿Existe un lugar definido donde se archivan los documentos o informes del TEL? (actas de reuniones, listas de acción, registro de mejoras, incidencias, PDCA's,...)"
+        Width: =600
+        X: =600
+        Y: =633
+        ZIndex: =124
+
+    Dropdown2_39 As dropdown:
+        Height: =30
+        Items: =["Si","No"]
+        Size: =10
+        Width: =85
+        X: =1205
+        Y: =633
+        ZIndex: =125
+
+    Label14_34 As label:
+        Align: =Align.Center
+        Fill: =RGBA(204, 231, 246, 1)
+        Height: =30
+        Size: =10
+        Text: =If(Dropdown2_39.SelectedText.Value="Si","20%","0%")
+        Width: =50
+        X: =1300
+        Y: =633
+        ZIndex: =126
+
+    Label13_35 As label:
+        Fill: =RGBA(204, 231, 246, 1)
+        Height: =30
+        Size: =10
+        Text: =" ¿Se utiliza como referencia para nuevos problemas y/o se comparte como lecciones aprendidas? "
+        Width: =600
+        X: =600
+        Y: =663
+        ZIndex: =127
+
+    Dropdown2_40 As dropdown:
+        Height: =30
+        Items: =["Si","No"]
+        Size: =10
+        Width: =85
+        X: =1205
+        Y: =663
+        ZIndex: =128
+
+    Label14_35 As label:
+        Align: =Align.Center
+        Fill: =RGBA(204, 231, 246, 1)
+        Height: =30
+        Size: =10
+        Text: =If(Dropdown2_40.SelectedText.Value="Si","20%","0%")
+        Width: =50
+        X: =1300
+        Y: =663
+        ZIndex: =129
+
+    Label13_36 As label:
+        Fill: =RGBA(204, 231, 246, 1)
+        Height: =30
+        Size: =10
+        Text: ="¿El registro del trabajo estándar podría facilitar la transición entre líderes? (asegurar que el proyecto puede funcionar si cambia algún responsable)"
+        Width: =600
+        X: =600
+        Y: =693
+        ZIndex: =130
+
+    Dropdown2_41 As dropdown:
+        Height: =30
+        Items: =["Si","No"]
+        Size: =10
+        Width: =85
+        X: =1205
+        Y: =693
+        ZIndex: =131
+
+    Label14_36 As label:
+        Align: =Align.Center
+        Fill: =RGBA(204, 231, 246, 1)
+        Height: =30
+        Size: =10
+        Text: =If(Dropdown2_41.SelectedText.Value="Si","20%","0%")
+        Width: =50
+        X: =1300
+        Y: =693
+        ZIndex: =132
+
+    Label13_37 As label:
+        Fill: =RGBA(204, 231, 246, 1)
+        Height: =30
+        Size: =10
+        Text: ="¿Participa el cliente u otros contratistas en el TEL para estabilizar aún más y mejorar la ejecución del trabajo?"
+        Width: =600
+        X: =600
+        Y: =723
+        ZIndex: =133
+
+    Dropdown2_42 As dropdown:
+        Height: =30
+        Items: =["Si","No"]
+        Size: =10
+        Width: =85
+        X: =1205
+        Y: =723
+        ZIndex: =134
+
+    Label14_37 As label:
+        Align: =Align.Center
+        Fill: =RGBA(204, 231, 246, 1)
+        Height: =30
+        Size: =10
+        Text: =If(Dropdown2_42.SelectedText.Value="Si","30%","0%")
+        Width: =50
+        X: =1300
+        Y: =723
+        ZIndex: =135
+
+    Label12_1 As label:
+        Height: =25
+        Size: =10
+        Text: =Gallery1.Selected.'Nombre del Proyecto'
+        Width: =500
+        X: =675
+        Y: =25
+        ZIndex: =136
+
+    Label4_52 As label:
+        Height: =25
+        OnSelect: =
+        Size: =10
+        Text: |-
+            ="Numero proyecto LEAN: "
+        Width: =175
+        X: =500
+        ZIndex: =137
+
+    Label4_53 As label:
+        Height: =25
+        OnSelect: =
+        Size: =10
+        Text: |-
+            ="Nombre proyecto LEAN: "
+        Width: =175
+        X: =500
+        Y: =25
+        ZIndex: =138
+
+    Label12_2 As label:
+        Height: =25
+        Size: =10
+        Text: =Gallery1.Selected.Responsable
+        Width: =500
+        X: =675
+        Y: =50
+        ZIndex: =139
+
+    Group18 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =139
+
+        Label16 As label:
+            Align: =Align.Center
+            Fill: =RGBA(253, 222, 207, 1)
+            Height: =25
+            Size: =10
+            Text: =Label14+Label14_1+Label14_2+Label14_3
+            Width: =50
+            X: =81
+            Y: =12
+            ZIndex: =36
+
+        Label16_1 As label:
+            Align: =Align.Center
+            Fill: =RGBA(253, 222, 207, 1)
+            Height: =25
+            Size: =10
+            Text: =Label14_4+Label14_5+Label14_6
+            Width: =50
+            X: =131
+            Y: =12
+            ZIndex: =37
+
+        Label16_2 As label:
+            Align: =Align.Center
+            Fill: =RGBA(253, 222, 207, 1)
+            Height: =25
+            Size: =10
+            Text: =Label14_7+Label14_8
+            Width: =50
+            X: =181
+            Y: =12
+            ZIndex: =38
+
+        Label16_3 As label:
+            Align: =Align.Center
+            Fill: =RGBA(253, 222, 207, 1)
+            Height: =25
+            Size: =10
+            Text: =Label14_9+Label14_10
+            Width: =50
+            X: =231
+            Y: =12
+            ZIndex: =39
+
+        Label16_4 As label:
+            Align: =Align.Center
+            Fill: =RGBA(253, 222, 207, 1)
+            Height: =25
+            Size: =10
+            Text: =If(Value(Label16.Text)<0.5,0,If(Value(Label16_1.Text)<0.5,1+Value(Label16_1.Text),If(Value(Label16_2.Text)<0.5,2+Value(Label16_2.Text),If(Value(Label16_3.Text)<0.5,2+Value(Label16_2.Text)+Value(Label16_3.Text),2.5+Value(Label16_2.Text)+Value(Label16_3.Text)))))
+            Width: =50
+            X: =281
+            Y: =12
+            ZIndex: =40
+
+        Label16_5 As label:
+            Align: =Align.Center
+            Fill: =RGBA(253, 222, 207, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =25
+            Size: =10
+            Text: =If(Value(Label16_4.Text)=0,1,If(Value(Label16_4.Text)<1.55,2,If(Value(Label16_4.Text)<2.55,3,If(Value(Label16_4.Text)<3.55,4,5))))
+            Width: =50
+            X: =331
+            Y: =12
+            ZIndex: =41
+
+        Label16_6 As label:
+            Align: =Align.Center
+            Fill: =RGBA(209, 232, 178, 1)
+            Height: =25
+            Size: =10
+            Text: =Label14_11+Label14_12+Label14_13
+            Width: =50
+            X: =81
+            Y: =37
+            ZIndex: =76
+
+        Label16_7 As label:
+            Align: =Align.Center
+            Fill: =RGBA(209, 232, 178, 1)
+            Height: =25
+            Size: =10
+            Text: =Label14_15+Label14_16+Label14_14
+            Width: =50
+            X: =131
+            Y: =37
+            ZIndex: =77
+
+        Label16_8 As label:
+            Align: =Align.Center
+            Fill: =RGBA(209, 232, 178, 1)
+            Height: =25
+            Size: =10
+            Text: =Label14_17+Label14_18+Label14_19
+            Width: =50
+            X: =181
+            Y: =37
+            ZIndex: =78
+
+        Label16_9 As label:
+            Align: =Align.Center
+            Fill: =RGBA(209, 232, 178, 1)
+            Height: =25
+            Size: =10
+            Text: =Label14_20+Label14_21
+            Width: =50
+            X: =231
+            Y: =37
+            ZIndex: =79
+
+        Label16_10 As label:
+            Align: =Align.Center
+            Fill: =RGBA(209, 232, 178, 1)
+            Height: =25
+            Size: =10
+            Text: =If(Value(Label16_6.Text)<0.5,0,If(Value(Label16_7.Text)<0.5,1+Value(Label16_7.Text),If(Value(Label16_8.Text)<0.5,2+Value(Label16_8.Text),If(Value(Label16_9.Text)<0.5,2+Value(Label16_8.Text)+Value(Label16_9.Text),2.5+Value(Label16_8.Text)+Value(Label16_9.Text)))))
+            Width: =50
+            X: =281
+            Y: =37
+            ZIndex: =80
+
+        Label16_11 As label:
+            Align: =Align.Center
+            Fill: =RGBA(209, 232, 178, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =25
+            Size: =10
+            Text: =If(Value(Label16_10.Text)=0,1,If(Value(Label16_10.Text)<1.55,2,If(Value(Label16_10.Text)<2.55,3,If(Value(Label16_10.Text)<3.55,4,5))))
+            Width: =50
+            X: =331
+            Y: =37
+            ZIndex: =81
+
+        Label16_12 As label:
+            Align: =Align.Center
+            Fill: =RGBA(204, 231, 246, 1)
+            Height: =25
+            Size: =10
+            Text: =Label14_22+Label14_23+Label14_24+Label14_25
+            Width: =50
+            X: =81
+            Y: =62
+            ZIndex: =115
+
+        Label16_13 As label:
+            Align: =Align.Center
+            Fill: =RGBA(204, 231, 246, 1)
+            Height: =25
+            Size: =10
+            Text: =Label14_26+Label14_27+Label14_28+Label14_29
+            Width: =50
+            X: =131
+            Y: =62
+            ZIndex: =116
+
+        Label16_14 As label:
+            Align: =Align.Center
+            Fill: =RGBA(204, 231, 246, 1)
+            Height: =25
+            Size: =10
+            Text: =Label14_30+Label14_31+Label14_32+Label14_33
+            Width: =50
+            X: =181
+            Y: =62
+            ZIndex: =117
+
+        Label16_15 As label:
+            Align: =Align.Center
+            Fill: =RGBA(204, 231, 246, 1)
+            Height: =25
+            Size: =10
+            Text: =Label14_34+Label14_35+Label14_36+Label14_37
+            Width: =50
+            X: =231
+            Y: =62
+            ZIndex: =118
+
+        Label16_16 As label:
+            Align: =Align.Center
+            Fill: =RGBA(204, 231, 246, 1)
+            Height: =25
+            Size: =10
+            Text: =If(Value(Label16_12.Text)<0.5,0,If(Value(Label16_13.Text)<0.5,1+Value(Label16_13.Text),If(Value(Label16_14.Text)<0.5,2+Value(Label16_14.Text),If(Value(Label16_15.Text)<0.5,2+Value(Label16_14.Text)+Value(Label16_15.Text),2.5+Value(Label16_14.Text)+Value(Label16_15.Text)))))
+            Width: =50
+            X: =281
+            Y: =62
+            ZIndex: =119
+
+        Label16_17 As label:
+            Align: =Align.Center
+            Fill: =RGBA(204, 231, 246, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =25
+            Size: =10
+            Text: =If(Value(Label16_16.Text)=0,1,If(Value(Label16_16.Text)<1.55,2,If(Value(Label16_16.Text)<2.55,3,If(Value(Label16_16.Text)<3.55,4,5))))
+            Width: =50
+            X: =331
+            Y: =62
+            ZIndex: =120
+
+    Label4_54 As label:
+        Height: =25
+        OnSelect: =
+        Size: =10
+        Text: |-
+            ="Responsable: "
+        Width: =175
+        X: =500
+        Y: =50
+        ZIndex: =140
+

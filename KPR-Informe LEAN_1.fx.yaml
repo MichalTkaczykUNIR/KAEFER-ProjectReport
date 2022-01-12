@@ -1,0 +1,1442 @@
+"'Informe LEAN_1' As screen":
+
+    Label3_8 As label:
+        FontWeight: =FontWeight.Semibold
+        Text: =Gallery1.Selected.'Nº Proyecto de KAEFER'
+        Width: =300
+        Y: =97
+        ZIndex: =1
+
+    Button2_5 As button:
+        OnSelect: =Navigate('Informe LEAN',Fade)
+        Text: ="Volver"
+        X: =24
+        Y: =12
+        ZIndex: =2
+
+    Label2_3 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Semibold
+        Size: =20
+        Text: ="Informe LEAN"
+        Width: =300
+        X: =520
+        Y: =10
+        ZIndex: =3
+
+    Image4_11 As image:
+        Height: =57
+        Image: ='KAEFER count on us'
+        Width: =254
+        X: =1086
+        Y: =10
+        ZIndex: =4
+
+    "Gallery1_1 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+        Height: =628
+        Items: =Sort(Filter('Reporte LEAN',NumProyectoLean=Gallery1.Selected.'Num Proyecto Lean'),Periodo,Descending)
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: |
+            =130
+        Width: =1366
+        Y: =140
+        ZIndex: =5
+
+        Image1_3 As image:
+            Image: =montaje
+            OnSelect: =Select(Parent)
+            X: =16
+            ZIndex: =1
+
+        Separator1_3 As rectangle:
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =5
+
+        Subtitle1_31 As label:
+            Align: =Align.Center
+            Height: |
+                =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =10
+            Text: |-
+                ="Periodo: "&ThisItem.Periodo
+            VerticalAlign: =VerticalAlign.Top
+            Width: =100
+            X: =16
+            Y: =97
+            ZIndex: =6
+
+        Subtitle1_23 As label:
+            Height: |
+                =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: |-
+                ="RL Recibido: "&ThisItem.RLRECIBIDO_x0028_FECHA_x0029_
+            VerticalAlign: =VerticalAlign.Top
+            Width: |
+                =300
+            X: =150
+            Y: =5
+            ZIndex: =9
+
+        Subtitle1_27 As label:
+            Height: |
+                =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: |-
+                ="Vol. Venta Origen: "&Text(Value(ThisItem.VOLUMENVENTAAORIGEN_x0028__x20ac),"##,###.00 €")
+            VerticalAlign: =VerticalAlign.Top
+            Width: |
+                =300
+            X: =150
+            Y: =95
+            ZIndex: =10
+
+        Subtitle1_32 As label:
+            Height: |
+                =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: |-
+                ="Vol. 2021: "&Text(Value(ThisItem.VOLUMENTOTALESTIMADO2021_x0028__),"##,###.00 €")
+            VerticalAlign: =VerticalAlign.Top
+            Width: |
+                =300
+            X: =150
+            Y: =35
+            ZIndex: =11
+
+        Subtitle1_24 As label:
+            Height: |
+                =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: |-
+                ="M2/M3 a origen: "&Text(Value(ThisItem.M3_x00d3_M2AORIGENoImpacto),"#,###")
+            VerticalAlign: =VerticalAlign.Top
+            Width: |
+                =300
+            X: =450
+            Y: =35
+            ZIndex: =13
+
+        Subtitle1_28 As label:
+            Height: |
+                =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: |-
+                ="M2/M3 estimados 2021: "&ThisItem.M3_x00d3_M2ESTIMADOSA_x00d1_O202
+            VerticalAlign: =VerticalAlign.Top
+            Width: |
+                =300
+            X: =150
+            Y: =65
+            ZIndex: =14
+
+        Subtitle1_33 As label:
+            Height: |
+                =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: |-
+                ="Horas Origen: "&Text(Value(ThisItem.HORASAORIGEN),"#,###")
+            VerticalAlign: =VerticalAlign.Top
+            Width: |
+                =300
+            X: =450
+            Y: =65
+            ZIndex: =15
+
+        Subtitle1_21 As label:
+            Height: |
+                =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: |-
+                ="Madurez PRD: "&ThisItem.MadurezPRD
+            VerticalAlign: =VerticalAlign.Top
+            Width: =300
+            X: =750
+            Y: =95
+            ZIndex: =16
+
+        Subtitle1_25 As label:
+            Height: |
+                =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: |-
+                ="Madurez CV Aut: "&ThisItem.MadurezCVaut
+            VerticalAlign: =VerticalAlign.Top
+            Width: =200
+            X: =1066
+            Y: =35
+            ZIndex: =17
+
+        Subtitle1_29 As label:
+            Height: |
+                =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: |-
+                ="Madurez PRD Aut: "&ThisItem.MadurezPRDaut
+            VerticalAlign: =VerticalAlign.Top
+            Width: =200
+            X: =1066
+            Y: =95
+            ZIndex: =18
+
+        Subtitle1_22 As label:
+            Height: |
+                =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: |-
+                ="Coste Hora: "&Text(Value(ThisItem.COSTEHORA_x0028__x20ac__x002f_h_),"##,###.00 €")
+            VerticalAlign: =VerticalAlign.Top
+            Width: =300
+            X: =450
+            Y: =95
+            ZIndex: =20
+
+        Subtitle1_30 As label:
+            Height: |
+                =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: |-
+                ="Madurez CV: "&ThisItem.MadurezCV
+            VerticalAlign: =VerticalAlign.Top
+            Width: =300
+            X: =750
+            Y: =35
+            ZIndex: =22
+
+        Subtitle1_35 As label:
+            Height: |
+                =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: |-
+                ="Madurez TEL: "&ThisItem.MadurezTEL
+            VerticalAlign: =VerticalAlign.Top
+            Width: =300
+            X: =750
+            Y: =65
+            ZIndex: =23
+
+        Subtitle1_36 As label:
+            Height: |
+                =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: |-
+                ="Madurez TEL Aut: "&ThisItem.MadurezTELaut
+            VerticalAlign: =VerticalAlign.Top
+            Width: =200
+            X: =1066
+            Y: =65
+            ZIndex: =24
+
+        Subtitle1_37 As label:
+            Height: |
+                =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: |-
+                ="Status: "&ThisItem.Status
+            VerticalAlign: =VerticalAlign.Top
+            Width: =300
+            X: =750
+            Y: =5
+            ZIndex: =25
+
+        Icon5_1 As icon.Edit:
+            Height: =50
+            Icon: =Icon.Edit
+            OnSelect: =Set(editReport,true)
+            Width: =50
+            X: =1290
+            Y: =45
+            ZIndex: =27
+
+    Label1_1 As label:
+        FontWeight: =FontWeight.Semibold
+        Text: |-
+            ="Nº de registros: "&CountRows(Gallery1_1.AllItems)
+        Width: =212
+        X: =874
+        Y: =10
+        ZIndex: =6
+
+    Label3 As label:
+        FontWeight: =FontWeight.Semibold
+        Text: |-
+            ="Numero Proyecto LEAN: "&Gallery1.Selected.'Num Proyecto Lean'
+        Width: =300
+        Y: =57
+        ZIndex: =7
+
+    Label3_1 As label:
+        FontWeight: =FontWeight.Semibold
+        Text: =Gallery1.Selected.'Nombre del Proyecto'
+        Width: =400
+        X: =300
+        Y: =57
+        ZIndex: =8
+
+    Label3_3 As label:
+        FontWeight: =FontWeight.Semibold
+        Text: |-
+            ="Responsable: "&Gallery1.Selected.Responsable
+        Width: =300
+        X: =900
+        Y: =57
+        ZIndex: =9
+
+    Label3_4 As label:
+        FontWeight: =FontWeight.Semibold
+        Text: |-
+            ="UDN: "&Gallery1.Selected.UDN
+        Width: =200
+        X: =700
+        Y: =57
+        ZIndex: =10
+
+    Label3_5 As label:
+        Text: |-
+            ="Impacto Directo: "&Gallery1.Selected.'IMPACTO DIRECTO (Si/No)'
+        Width: =200
+        X: =900
+        Y: =100
+        ZIndex: =11
+
+    Label3_6 As label:
+        Text: |-
+            ="Vol. Total: "&Text(Value(Gallery1.Selected.' Turnover Total del Proyecto en 2021 (€) '),"#,###.00 €")
+        Width: =300
+        X: =300
+        Y: =100
+        ZIndex: =12
+
+    Label3_7 As label:
+        Text: |-
+            ="Horas 2021: "&Text(Value(Gallery1.Selected.'Horas 2021'),"##,###")
+        Width: =200
+        X: =700
+        Y: =100
+        ZIndex: =13
+
+    Icon4 As icon.Add:
+        Height: =50
+        Icon: =Icon.Add
+        OnSelect: =Set(addReport,true)
+        Width: =50
+        X: =1290
+        Y: =67
+        ZIndex: =14
+
+    Gallery6 As gallery.galleryVertical:
+        Fill: =RGBA(227, 234, 243, 1)
+        Height: =768
+        Items: =["1"]
+        Layout: =Layout.Vertical
+        TemplateSize: =750
+        Visible: =addReport
+        Width: =1366
+        ZIndex: =15
+
+        TextInput3_15 As text:
+            Align: =Align.Center
+            Default: =Gallery1.Selected.'Num Proyecto Lean'
+            DisplayMode: =DisplayMode.View
+            Format: =TextFormat.Number
+            OnSelect: =Select(Parent)
+            Width: =75
+            X: =426
+            Y: =81
+            ZIndex: =1
+
+        Label4_26 As label:
+            OnSelect: =Select(Parent)
+            Text: |-
+                ="Numero proyecto LEAN: "
+            Width: =250
+            X: =176
+            Y: =81
+            ZIndex: =3
+
+        Button3_4 As button:
+            OnSelect: |-
+                =Patch('Reporte LEAN',Defaults('Reporte LEAN'),{'Num Proyecto Lean':TextInput3_15.Text,'Nombre del Proyecto':TextInput3_16.Text,
+                Responsable:TextInput2_18.Text,UDN:TextInput2_21.Text,'RL RECIBIDO (FECHA)':DatePicker1_6.SelectedDate,'IMPACTO DIRECTO (Si/No)':TextInput2_20.Text,
+                ' VOLUMEN VENTA A ORIGEN (€)':TextInput3_17.Text,' M3 Ó M2 A ORIGEN o Impacto':TextInput3_18.Text,'HORAS A ORIGEN':TextInput3_22.Text,
+                'COSTE HORA (€/h)':TextInput3_19.Text,'VOLUMEN TOTAL ESTIMADO 2021 (€) ':TextInput2_19.Text,'HORAS ESTIMADAS AÑO 2021':TextInput2_16.Text,
+                'M3 Ó M2 ESTIMADOS AÑO 2021 ':TextInput2_23.Text,Periodo:TextInput2_22.Text,Status:TextInput2_17.Text,'Madurez CV':TextInput3_20.Text,
+                'Madurez TEL':TextInput3_21.Text,'Madurez PRD':TextInput3_23.Text,'Madurez CV aut':TextInput3_24.Text,'Madurez TEL aut':TextInput3_25.Text,
+                'Madurez PRD aut':TextInput3_26.Text});
+                Set(addReport, false );Refresh('Reporte LEAN')
+            Text: ="GUARDAR"
+            X: =591
+            Y: =700
+            ZIndex: =6
+
+        Label4_29 As label:
+            OnSelect: =Select(Parent)
+            Text: |-
+                ="RL Recibido: "
+            X: =65
+            Y: =147
+            ZIndex: =24
+
+        DatePicker1_6 As datepicker:
+            DisplayMode: =DisplayMode.View
+            Format: ="dd/mm/yyyy"
+            OnSelect: =Select(Parent)
+            Width: =150
+            X: =215
+            Y: =147
+            ZIndex: =25
+
+        TextInput3_16 As text:
+            Default: =Gallery1.Selected.'Nº Proyecto de KAEFER'&" - "&Gallery1.Selected.'Nombre del Proyecto'
+            DisplayMode: =DisplayMode.View
+            OnSelect: =Select(Parent)
+            Size: =10
+            Width: =550
+            X: =770
+            Y: =81
+            ZIndex: =32
+
+        Label4_27 As label:
+            OnSelect: =Select(Parent)
+            Text: |-
+                ="Nombre proyecto LEAN: "
+            Width: =250
+            X: =520
+            Y: =81
+            ZIndex: =33
+
+        Label7_2 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Semibold
+            OnSelect: =Select(Parent)
+            Size: =18
+            Text: ="AÑADIR INFORME LEAN"
+            Width: =658
+            X: =342
+            Y: =26
+            ZIndex: =45
+
+        Icon6_1 As icon.Cancel:
+            Icon: =Icon.Cancel
+            OnSelect: =Set(addReport,false)
+            Visible: =addReport
+            X: =1292
+            ZIndex: =46
+
+        Group2 As group:
+            Height: =5
+            Width: =5
+            X: =60
+            Y: =60
+            ZIndex: =50
+
+            Label5_26 As label:
+                DisplayMode: =DisplayMode.View
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="UdN: "
+                Width: =175
+                X: =40
+                Y: =256
+                ZIndex: =4
+
+            Label5_27 As label:
+                DisplayMode: =DisplayMode.View
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Impacto Directo: "
+                Width: =175
+                X: =40
+                Y: =356
+                ZIndex: =5
+
+            Label5_28 As label:
+                DisplayMode: =DisplayMode.View
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Volumen total estimado 2021: "
+                Width: =175
+                X: =40
+                Y: =456
+                ZIndex: =7
+
+            Label5_29 As label:
+                DisplayMode: =DisplayMode.View
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Responsable: "
+                Width: =175
+                X: =40
+                Y: =306
+                ZIndex: =8
+
+            Label5_30 As label:
+                DisplayMode: =DisplayMode.View
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Status: "
+                Width: =175
+                X: =40
+                Y: =406
+                ZIndex: =9
+
+            Label5_25 As label:
+                DisplayMode: =DisplayMode.View
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Periodo: "
+                Width: =175
+                X: =40
+                Y: =206
+                ZIndex: =10
+
+            Label5_31 As label:
+                DisplayMode: =DisplayMode.View
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Horas estimadas 2021: "
+                Width: =175
+                X: =40
+                Y: =506
+                ZIndex: =31
+
+            TextInput2_22 As text:
+                Default: =Text(Today()-30,"mm/yyyy")
+                DisplayMode: =DisplayMode.View
+                OnSelect: =Select(Parent)
+                Width: =300
+                X: =215
+                Y: =206
+                ZIndex: =35
+
+            TextInput2_21 As text:
+                Default: =Gallery1.Selected.UDN
+                DisplayMode: =DisplayMode.View
+                OnSelect: =Select(Parent)
+                Width: =300
+                X: =215
+                Y: =256
+                ZIndex: =36
+
+            TextInput2_20 As text:
+                Default: =Gallery1.Selected.'IMPACTO DIRECTO (Si/No)'
+                DisplayMode: =DisplayMode.View
+                OnSelect: =Select(Parent)
+                Width: =300
+                X: =215
+                Y: =356
+                ZIndex: =37
+
+            TextInput2_19 As text:
+                Default: =Gallery1.Selected.' Turnover Total del Proyecto en 2021 (€) '
+                Format: =TextFormat.Number
+                OnSelect: =Select(Parent)
+                Width: =300
+                X: =215
+                Y: =456
+                ZIndex: =38
+
+            TextInput2_18 As text:
+                Default: =Gallery1.Selected.Responsable
+                DisplayMode: =DisplayMode.View
+                OnSelect: =Select(Parent)
+                Width: =300
+                X: =215
+                Y: =306
+                ZIndex: =39
+
+            TextInput2_17 As text:
+                Default: =Gallery1.Selected.Status
+                OnSelect: =Select(Parent)
+                Width: =300
+                X: =215
+                Y: =406
+                ZIndex: =40
+
+            TextInput2_16 As text:
+                Default: =Gallery1.Selected.'Horas 2021'
+                Format: =TextFormat.Number
+                Mode: =TextMode.MultiLine
+                OnSelect: =Select(Parent)
+                Width: =300
+                X: =215
+                Y: =506
+                ZIndex: =41
+
+            Label5_32 As label:
+                DisplayMode: =DisplayMode.View
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="m3 o m2 estimados 2021: "
+                Width: =175
+                X: =40
+                Y: =556
+                ZIndex: =48
+
+            TextInput2_23 As text:
+                Default: =Gallery1.Selected.' Alcance 2021 (m3 o m2) '
+                Format: =TextFormat.Number
+                Mode: =TextMode.MultiLine
+                OnSelect: =Select(Parent)
+                Width: =300
+                X: =215
+                Y: =556
+                ZIndex: =49
+
+        Icon6 As icon.Cancel:
+            Icon: =Icon.ClearDrawing
+            OnSelect: |-
+                =Reset(TextInput3_17);
+                Reset(TextInput3_18);
+                Reset(TextInput3_22);
+                Reset(TextInput3_19);
+                Reset(TextInput3_20);
+                Reset(TextInput3_21);
+                Reset(TextInput3_23);
+                Reset(TextInput3_24);
+                Reset(TextInput3_25);
+                Reset(TextInput3_26)
+            Tooltip: ="Limpiar registros"
+            X: =1242
+            Y: =206
+            ZIndex: =58
+
+        Group11 As group:
+            Height: =5
+            Width: =5
+            X: =60
+            Y: =60
+            ZIndex: =58
+
+            TextInput3_17 As text:
+                Align: =Align.Center
+                Default: |-
+                    =Text(Value(Substitute(LookUp(SAP_COSTES_SP,Value(Montaje)=Value(Label3_8.Text)*100,'Importe Factura'),".",",")),"#,###")
+                Fill: =If(Len(TextInput3_17.Text)>0,RGBA(232, 244, 217, 1),RGBA(253, 222, 207, 1))
+                Format: =TextFormat.Number
+                OnSelect: =Select(Parent)
+                Reset: =true
+                Width: =150
+                X: =975
+                Y: =206
+                ZIndex: =11
+
+            Label4_32 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Volumen venta a origen: "
+                Width: =250
+                X: =725
+                Y: =206
+                ZIndex: =12
+
+            TextInput3_18 As text:
+                Align: =Align.Center
+                Default: =""
+                Fill: =If(Len(TextInput3_18.Text)>0,RGBA(232, 244, 217, 1),RGBA(253, 222, 207, 1))
+                Format: =TextFormat.Number
+                OnSelect: =Select(Parent)
+                Reset: =true
+                Width: =150
+                X: =975
+                Y: =256
+                ZIndex: =13
+
+            Label4_33 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="m3 o m2 a origen: "
+                Width: =250
+                X: =725
+                Y: =256
+                ZIndex: =14
+
+            Label4_34 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Horas a origen: "
+                Width: =250
+                X: =725
+                Y: =306
+                ZIndex: =15
+
+            TextInput3_19 As text:
+                Align: =Align.Center
+                Default: |-
+                    =Text(Value(Substitute(LookUp(SAP_COSTES_SP,Value(Montaje)=Value(Label3_8.Text)*100,'importe horas'),".",","))/Value(Substitute(LookUp(SAP_COSTES_SP,Value(Montaje)=Value(Label3_8.Text)*100,Horas),".",",")),"#,###.##")
+                Fill: =If(Len(TextInput3_19.Text)>0,RGBA(232, 244, 217, 1),RGBA(253, 222, 207, 1))
+                Format: =TextFormat.Number
+                OnSelect: =Select(Parent)
+                Reset: =true
+                Width: =150
+                X: =975
+                Y: =356
+                ZIndex: =16
+
+            Label4_35 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Coste hora (€/h): "
+                Width: =250
+                X: =725
+                Y: =356
+                ZIndex: =17
+
+            TextInput3_20 As text:
+                Align: =Align.Center
+                Default: =""
+                DisplayMode: =If(Label21_4.Text="Directivo",DisplayMode.Edit,DisplayMode.View)
+                Fill: =If(Len(TextInput3_20.Text)>0,RGBA(232, 244, 217, 1),RGBA(253, 222, 207, 1))
+                Format: =TextFormat.Number
+                OnSelect: =Select(Parent)
+                Reset: =true
+                Width: =150
+                X: =745
+                Y: =456
+                ZIndex: =18
+
+            Label4_36 As label:
+                Align: =Align.Right
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Madurez CV: "
+                Width: =175
+                X: =570
+                Y: =456
+                ZIndex: =19
+
+            TextInput3_21 As text:
+                Align: =Align.Center
+                Default: =""
+                DisplayMode: =If(Label21_4.Text="Directivo",DisplayMode.Edit,DisplayMode.View)
+                Fill: =If(Len(TextInput3_21.Text)>0,RGBA(232, 244, 217, 1),RGBA(253, 222, 207, 1))
+                Format: =TextFormat.Number
+                OnSelect: =Select(Parent)
+                Reset: =true
+                Width: =150
+                X: =745
+                Y: =506
+                ZIndex: =20
+
+            Label4_37 As label:
+                Align: =Align.Right
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Madurez TEL: "
+                Width: =175
+                X: =570
+                Y: =506
+                ZIndex: =21
+
+            TextInput3_22 As text:
+                Align: =Align.Center
+                Default: |-
+                    =Text(Value(Substitute(LookUp(SAP_COSTES_SP,Value(Montaje)=Value(Label3_8.Text)*100,Horas),".",",")),"#,###")
+                Fill: =If(Len(TextInput3_22.Text)>0,RGBA(232, 244, 217, 1),RGBA(253, 222, 207, 1))
+                Format: =TextFormat.Number
+                OnSelect: =Select(Parent)
+                Reset: =true
+                Width: =150
+                X: =975
+                Y: =306
+                ZIndex: =47
+
+            TextInput3_23 As text:
+                Align: =Align.Center
+                Default: =""
+                DisplayMode: =If(Label21_4.Text="Directivo",DisplayMode.Edit,DisplayMode.View)
+                Fill: =If(Len(TextInput3_23.Text)>0,RGBA(232, 244, 217, 1),RGBA(253, 222, 207, 1))
+                Format: =TextFormat.Number
+                OnSelect: =Select(Parent)
+                Reset: =true
+                Width: =150
+                X: =745
+                Y: =556
+                ZIndex: =50
+
+            Label4_38 As label:
+                Align: =Align.Right
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Madurez PRD: "
+                Width: =175
+                X: =570
+                Y: =556
+                ZIndex: =51
+
+            TextInput3_24 As text:
+                Align: =Align.Center
+                Default: =MadurezCV
+                Fill: =If(Len(TextInput3_24.Text)>0,RGBA(232, 244, 217, 1),RGBA(253, 222, 207, 1))
+                Format: =TextFormat.Number
+                OnSelect: =Select(Parent);Navigate(Madurez,Fade)
+                Reset: =true
+                Width: =150
+                X: =1156
+                Y: =456
+                ZIndex: =52
+
+            Label4_39 As label:
+                Align: =Align.Right
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Madurez CV aut: "
+                Width: =175
+                X: =981
+                Y: =456
+                ZIndex: =53
+
+            TextInput3_25 As text:
+                Align: =Align.Center
+                Default: =MadurezTEL
+                Fill: =If(Len(TextInput3_25.Text)>0,RGBA(232, 244, 217, 1),RGBA(253, 222, 207, 1))
+                Format: =TextFormat.Number
+                OnSelect: =Select(Parent);Navigate(Madurez,Fade)
+                Reset: =true
+                Width: =150
+                X: =1156
+                Y: =506
+                ZIndex: =54
+
+            Label4_40 As label:
+                Align: =Align.Right
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Madurez TEL aut: "
+                Width: =175
+                X: =981
+                Y: =506
+                ZIndex: =55
+
+            TextInput3_26 As text:
+                Align: =Align.Center
+                Default: =MadurezPRD
+                Fill: =If(Len(TextInput3_26.Text)>0,RGBA(232, 244, 217, 1),RGBA(253, 222, 207, 1))
+                Format: =TextFormat.Number
+                OnSelect: =Select(Parent);Navigate(Madurez,Fade)
+                Reset: =true
+                Width: =150
+                X: =1156
+                Y: =556
+                ZIndex: =56
+
+            Label4_41 As label:
+                Align: =Align.Right
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Madurez PRD aut: "
+                Width: =175
+                X: =981
+                Y: =556
+                ZIndex: =57
+
+    Gallery6_2 As gallery.galleryVertical:
+        Fill: =RGBA(153, 207, 236, 1)
+        Height: =768
+        Items: =Gallery1_1.Selected
+        Layout: =Layout.Vertical
+        TemplateSize: =750
+        Visible: =editReport
+        Width: =1366
+        ZIndex: =16
+
+        TextInput3_27 As text:
+            Align: =Align.Center
+            Default: =Gallery1_1.Selected.NumProyectoLean
+            DisplayMode: =DisplayMode.View
+            Format: =TextFormat.Number
+            OnSelect: =Select(Parent)
+            Width: =75
+            X: =426
+            Y: =81
+            ZIndex: =1
+
+        Label4_28 As label:
+            OnSelect: =Select(Parent)
+            Text: |-
+                ="Numero proyecto LEAN: "
+            Width: =250
+            X: =176
+            Y: =81
+            ZIndex: =3
+
+        Button3_5 As button:
+            OnSelect: |-
+                =Patch('Reporte LEAN',ThisItem,
+                {
+                    NumProyectoLean:TextInput3_27.Text,
+                    NombredelProyecto:TextInput3_28.Text,
+                    Responsable:TextInput2_26.Text,
+                    UDN:TextInput2_25.Text,
+                    RLRECIBIDO_x0028_FECHA_x0029_:DatePicker1_7.SelectedDate,
+                    IMPACTODIRECTO_x0028_Si_x002f_No:TextInput2_27.Text,
+                    VOLUMENVENTAAORIGEN_x0028__x20ac:TextInput3_29.Text,
+                    M3_x00d3_M2AORIGENoImpacto:TextInput3_30.Text,
+                    HORASAORIGEN:TextInput3_31.Text,
+                    COSTEHORA_x0028__x20ac__x002f_h_:TextInput3_32.Text,
+                    VOLUMENTOTALESTIMADO2021_x0028__:TextInput2_19.Text,
+                    HORASESTIMADASA_x00d1_O2021:TextInput2_16.Text,
+                    M3_x00d3_M2ESTIMADOSA_x00d1_O202:TextInput2_23.Text,
+                    Periodo:TextInput2_24.Text,
+                    Status:TextInput2_28.Text,
+                    MadurezCV:TextInput3_33.Text,
+                    MadurezTEL: TextInput3_35.Text,
+                    MadurezPRD:TextInput3_37.Text,
+                    MadurezCVaut:TextInput3_34.Text,
+                    MadurezTELaut:TextInput3_36.Text,
+                    MadurezPRDaut:TextInput3_38.Text
+                }
+                );
+                Set(editReport,false);
+                Refresh('Reporte LEAN')
+            Text: ="GUARDAR"
+            X: =591
+            Y: =700
+            ZIndex: =6
+
+        Label4_31 As label:
+            OnSelect: =Select(Parent)
+            Text: |-
+                ="RL Recibido: "
+            X: =65
+            Y: =147
+            ZIndex: =24
+
+        DatePicker1_7 As datepicker:
+            DisplayMode: =DisplayMode.View
+            Format: ="dd/mm/yyyy"
+            OnSelect: =Select(Parent)
+            Width: =150
+            X: =215
+            Y: =147
+            ZIndex: =25
+
+        TextInput3_28 As text:
+            Default: =Gallery1_1.Selected.NombredelProyecto
+            DisplayMode: =DisplayMode.View
+            OnSelect: =Select(Parent)
+            Width: =450
+            X: =770
+            Y: =81
+            ZIndex: =32
+
+        Label4_30 As label:
+            OnSelect: =Select(Parent)
+            Text: |-
+                ="Nombre proyecto LEAN: "
+            Width: =250
+            X: =520
+            Y: =81
+            ZIndex: =33
+
+        Label7_3 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Semibold
+            OnSelect: =Select(Parent)
+            Size: =18
+            Text: ="EDITAR INFORME LEAN"
+            Width: =658
+            X: =342
+            Y: =26
+            ZIndex: =45
+
+        Icon6_2 As icon.Cancel:
+            Icon: =Icon.Cancel
+            OnSelect: =Set(addReport,false)
+            Visible: =addReport
+            X: =1292
+            ZIndex: =46
+
+        Group2_2 As group:
+            Height: =5
+            Width: =5
+            X: =60
+            Y: =60
+            ZIndex: =50
+
+            Label5_34 As label:
+                DisplayMode: =DisplayMode.View
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="UdN: "
+                Width: =175
+                X: =40
+                Y: =256
+                ZIndex: =4
+
+            Label5_36 As label:
+                DisplayMode: =DisplayMode.View
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Impacto Directo: "
+                Width: =175
+                X: =40
+                Y: =356
+                ZIndex: =5
+
+            Label5_38 As label:
+                DisplayMode: =DisplayMode.View
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Volumen total estimado 2021: "
+                Width: =175
+                X: =40
+                Y: =456
+                ZIndex: =7
+
+            Label5_35 As label:
+                DisplayMode: =DisplayMode.View
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Responsable: "
+                Width: =175
+                X: =40
+                Y: =306
+                ZIndex: =8
+
+            Label5_37 As label:
+                DisplayMode: =DisplayMode.View
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Status: "
+                Width: =175
+                X: =40
+                Y: =406
+                ZIndex: =9
+
+            Label5_33 As label:
+                DisplayMode: =DisplayMode.View
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Periodo: "
+                Width: =175
+                X: =40
+                Y: =206
+                ZIndex: =10
+
+            Label5_39 As label:
+                DisplayMode: =DisplayMode.View
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Horas estimadas 2021: "
+                Width: =175
+                X: =40
+                Y: =506
+                ZIndex: =31
+
+            TextInput2_24 As text:
+                Default: =Text(Today()-30,"mm/yyyy")
+                DisplayMode: =DisplayMode.View
+                OnSelect: =Select(Parent)
+                Width: =300
+                X: =215
+                Y: =206
+                ZIndex: =35
+
+            TextInput2_25 As text:
+                Default: =Gallery1_1.Selected.UDN
+                DisplayMode: =DisplayMode.View
+                OnSelect: =Select(Parent)
+                Width: =300
+                X: =215
+                Y: =256
+                ZIndex: =36
+
+            TextInput2_27 As text:
+                Default: =Gallery1_1.Selected.IMPACTODIRECTO_x0028_Si_x002f_No
+                DisplayMode: =DisplayMode.View
+                OnSelect: =Select(Parent)
+                Width: =300
+                X: =215
+                Y: =356
+                ZIndex: =37
+
+            TextInput2_29 As text:
+                Default: =Gallery1_1.Selected.VOLUMENTOTALESTIMADO2021_x0028__
+                Format: =TextFormat.Number
+                OnSelect: =Select(Parent)
+                Width: =300
+                X: =215
+                Y: =456
+                ZIndex: =38
+
+            TextInput2_26 As text:
+                Default: =Gallery1_1.Selected.Responsable
+                DisplayMode: =DisplayMode.View
+                OnSelect: =Select(Parent)
+                Width: =300
+                X: =215
+                Y: =306
+                ZIndex: =39
+
+            TextInput2_28 As text:
+                Default: =Gallery1_1.Selected.Status
+                OnSelect: =Select(Parent)
+                Width: =300
+                X: =215
+                Y: =406
+                ZIndex: =40
+
+            TextInput2_30 As text:
+                Default: =Gallery1_1.Selected.HORASESTIMADASA_x00d1_O2021
+                Format: =TextFormat.Number
+                Mode: =TextMode.MultiLine
+                OnSelect: =Select(Parent)
+                Width: =300
+                X: =215
+                Y: =506
+                ZIndex: =41
+
+            Label5_40 As label:
+                DisplayMode: =DisplayMode.View
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="m3 o m2 estimados 2021: "
+                Width: =175
+                X: =40
+                Y: =556
+                ZIndex: =48
+
+            TextInput2_31 As text:
+                Default: =Gallery1_1.Selected.M3_x00d3_M2ESTIMADOSA_x00d1_O202
+                Format: =TextFormat.Number
+                Mode: =TextMode.MultiLine
+                OnSelect: =Select(Parent)
+                Width: =300
+                X: =215
+                Y: =556
+                ZIndex: =49
+
+        Icon6_3 As icon.Cancel:
+            Icon: =Icon.ClearDrawing
+            OnSelect: |-
+                =Reset(TextInput3_29);
+                Reset(TextInput3_30);
+                Reset(TextInput3_31);
+                Reset(TextInput3_32);
+                Reset(TextInput3_33);
+                Reset(TextInput3_35);
+                Reset(TextInput3_37);
+                Reset(TextInput3_34);
+                Reset(TextInput3_36);
+                Reset(TextInput3_38)
+            Tooltip: ="Limpiar registros"
+            X: =1242
+            Y: =206
+            ZIndex: =58
+
+        Group11_1 As group:
+            Height: =5
+            Width: =5
+            X: =60
+            Y: =60
+            ZIndex: =58
+
+            TextInput3_29 As text:
+                Align: =Align.Center
+                Default: =Gallery1_1.Selected.VOLUMENVENTAAORIGEN_x0028__x20ac
+                Fill: =If(Len(TextInput3_29.Text)>0,RGBA(232, 244, 217, 1),RGBA(253, 222, 207, 1))
+                Format: =TextFormat.Number
+                OnSelect: =Select(Parent)
+                Reset: =true
+                Width: =150
+                X: =975
+                Y: =206
+                ZIndex: =11
+
+            Label4_42 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Volumen venta a origen: "
+                Width: =250
+                X: =725
+                Y: =206
+                ZIndex: =12
+
+            TextInput3_30 As text:
+                Align: =Align.Center
+                Default: =Gallery1_1.Selected.M3_x00d3_M2AORIGENoImpacto
+                Fill: =If(Len(TextInput3_30.Text)>0,RGBA(232, 244, 217, 1),RGBA(253, 222, 207, 1))
+                Format: =TextFormat.Number
+                OnSelect: =Select(Parent)
+                Reset: =true
+                Width: =150
+                X: =975
+                Y: =256
+                ZIndex: =13
+
+            Label4_43 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="m3 o m2 a origen: "
+                Width: =250
+                X: =725
+                Y: =256
+                ZIndex: =14
+
+            Label4_44 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Horas a origen: "
+                Width: =250
+                X: =725
+                Y: =306
+                ZIndex: =15
+
+            TextInput3_32 As text:
+                Align: =Align.Center
+                Default: =Gallery1_1.Selected.COSTEHORA_x0028__x20ac__x002f_h_
+                Fill: =If(Len(TextInput3_32.Text)>0,RGBA(232, 244, 217, 1),RGBA(253, 222, 207, 1))
+                Format: =TextFormat.Number
+                OnSelect: =Select(Parent)
+                Reset: =true
+                Width: =150
+                X: =975
+                Y: =356
+                ZIndex: =16
+
+            Label4_45 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Coste hora (€/h): "
+                Width: =250
+                X: =725
+                Y: =356
+                ZIndex: =17
+
+            TextInput3_33 As text:
+                Align: =Align.Center
+                Default: =Gallery1_1.Selected.MadurezCV
+                Fill: =If(Len(TextInput3_33.Text)>0,RGBA(232, 244, 217, 1),RGBA(253, 222, 207, 1))
+                Format: =TextFormat.Number
+                OnSelect: =Select(Parent)
+                Reset: =true
+                Width: =150
+                X: =745
+                Y: =456
+                ZIndex: =18
+
+            Label4_46 As label:
+                Align: =Align.Right
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Madurez CV: "
+                Width: =175
+                X: =570
+                Y: =456
+                ZIndex: =19
+
+            TextInput3_35 As text:
+                Align: =Align.Center
+                Default: =Gallery1_1.Selected.MadurezTEL
+                Fill: =If(Len(TextInput3_35.Text)>0,RGBA(232, 244, 217, 1),RGBA(253, 222, 207, 1))
+                Format: =TextFormat.Number
+                OnSelect: =Select(Parent)
+                Reset: =true
+                Width: =150
+                X: =745
+                Y: =506
+                ZIndex: =20
+
+            Label4_48 As label:
+                Align: =Align.Right
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Madurez TEL: "
+                Width: =175
+                X: =570
+                Y: =506
+                ZIndex: =21
+
+            TextInput3_31 As text:
+                Align: =Align.Center
+                Default: =Gallery1_1.Selected.HORASAORIGEN
+                Fill: =If(Len(TextInput3_31.Text)>0,RGBA(232, 244, 217, 1),RGBA(253, 222, 207, 1))
+                Format: =TextFormat.Number
+                OnSelect: =Select(Parent)
+                Reset: =true
+                Width: =150
+                X: =975
+                Y: =306
+                ZIndex: =47
+
+            TextInput3_37 As text:
+                Align: =Align.Center
+                Default: =Gallery1_1.Selected.MadurezPRD
+                Fill: =If(Len(TextInput3_37.Text)>0,RGBA(232, 244, 217, 1),RGBA(253, 222, 207, 1))
+                Format: =TextFormat.Number
+                OnSelect: =Select(Parent)
+                Reset: =true
+                Width: =150
+                X: =745
+                Y: =556
+                ZIndex: =50
+
+            Label4_50 As label:
+                Align: =Align.Right
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Madurez PRD: "
+                Width: =175
+                X: =570
+                Y: =556
+                ZIndex: =51
+
+            TextInput3_34 As text:
+                Align: =Align.Center
+                Default: =Gallery1_1.Selected.MadurezCVaut
+                Fill: =If(Len(TextInput3_34.Text)>0,RGBA(232, 244, 217, 1),RGBA(253, 222, 207, 1))
+                Format: =TextFormat.Number
+                OnSelect: =Select(Parent)
+                Reset: =true
+                Width: =150
+                X: =1156
+                Y: =456
+                ZIndex: =52
+
+            Label4_47 As label:
+                Align: =Align.Right
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Madurez CV aut: "
+                Width: =175
+                X: =981
+                Y: =456
+                ZIndex: =53
+
+            TextInput3_36 As text:
+                Align: =Align.Center
+                Default: =Gallery1_1.Selected.MadurezTELaut
+                Fill: =If(Len(TextInput3_36.Text)>0,RGBA(232, 244, 217, 1),RGBA(253, 222, 207, 1))
+                Format: =TextFormat.Number
+                OnSelect: =Select(Parent)
+                Reset: =true
+                Width: =150
+                X: =1156
+                Y: =506
+                ZIndex: =54
+
+            Label4_49 As label:
+                Align: =Align.Right
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Madurez TEL aut: "
+                Width: =175
+                X: =981
+                Y: =506
+                ZIndex: =55
+
+            TextInput3_38 As text:
+                Align: =Align.Center
+                Default: =Gallery1_1.Selected.MadurezPRDaut
+                Fill: =If(Len(TextInput3_38.Text)>0,RGBA(232, 244, 217, 1),RGBA(253, 222, 207, 1))
+                Format: =TextFormat.Number
+                OnSelect: =Select(Parent)
+                Reset: =true
+                Width: =150
+                X: =1156
+                Y: =556
+                ZIndex: =56
+
+            Label4_51 As label:
+                Align: =Align.Right
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Madurez PRD aut: "
+                Width: =175
+                X: =981
+                Y: =556
+                ZIndex: =57
+
+        Icon7 As icon.Cancel:
+            Icon: =Icon.Cancel
+            OnSelect: =Set(editReport,false)
+            X: =1292
+            ZIndex: =59
+
+        Icon7_1 As icon.Cancel:
+            Icon: =Icon.Trash
+            OnSelect: =Remove('Reporte LEAN', ThisItem);Set(editReport,false)
+            X: =1
+            Y: =2
+            ZIndex: =60
+

@@ -1,0 +1,15 @@
+PBI As screen:
+
+    PowerBI5 As powerbi:
+        Height: =704
+        TileUrl: |-
+            ="https://app.powerbi.com/reportEmbed?reportId=8190aa28-348f-405f-b623-589aa81fddbd&autoAuth=true&ctid=a4ba9a94-480c-403e-9e4a-c525a09ec965&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLW5vcnRoLWV1cm9wZS1nLXByaW1hcnktcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D"
+        Width: =1366
+        Y: =64
+        ZIndex: =1
+
+    Icon1 As icon.ChevronLeft:
+        Icon: =Icon.ChevronLeft
+        OnSelect: =Navigate(Proyectos, ScreenTransition.Fade)
+        ZIndex: =2
+

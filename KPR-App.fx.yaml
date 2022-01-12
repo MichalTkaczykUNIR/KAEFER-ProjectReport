@@ -1,0 +1,16 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |-
+        =ClearCollect(col_Actividad,SAP_ACTIVIDADES);
+        ClearCollect(col_Montajes,ShowColumns(SAP_Montajes,"Proyecto","Name","CardName","Actividad","Start","Cierre","Lugar","Margeninic",
+        "Factinic","Sector","Cliente","Status","UdN","UdNegocio","Responsable"));
+        ClearCollect(col_InformeCompleto,Sort(Informe_Montajes_SP,ID,Descending));
+        ClearCollect(col_Comentarios,Sort(Informe_Montajes_Comentarios_SP,ID,Descending))
+
+    PowerBIIntegration As hostControl.DynamicHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+

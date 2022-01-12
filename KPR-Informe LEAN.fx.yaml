@@ -1,0 +1,1397 @@
+"'Informe LEAN' As screen":
+
+    Button2_2 As button:
+        OnSelect: =Navigate(UdN,Fade)
+        Text: ="Volver"
+        X: =24
+        Y: =12
+        ZIndex: =1
+
+    Label2_1 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Semibold
+        Size: =20
+        Text: ="Informe LEAN - Definición proyecto"
+        Width: =567
+        X: =307
+        Y: =10
+        ZIndex: =2
+
+    Image4_9 As image:
+        Height: =57
+        Image: ='KAEFER count on us'
+        Width: =254
+        X: =1086
+        Y: =10
+        ZIndex: =3
+
+    "Gallery1 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+        Height: =663
+        Items: |-
+            =If(Label21_4.Text="Directivo",
+            Sort(Filter('Definición Lean',TextInput1.Text in 'Nº Proyecto de KAEFER',TextInput1_1.Text in UDN,TextInput1_2.Text in Actividad,TextInput1_3.Text in Responsable),Value('Num Proyecto Lean'),Descending),
+            If(Label21_4.Text="RUN",
+                Sort(Filter('Definición Lean',TextInput1.Text in 'Nº Proyecto de KAEFER',UDN in Label21_5.Text,TextInput1_2.Text in Actividad,TextInput1_3.Text in Responsable),Value('Num Proyecto Lean'),Descending),
+                Sort(Filter('Definición Lean',TextInput1.Text in 'Nº Proyecto de KAEFER',TextInput1_1.Text in UDN,TextInput1_2.Text in Actividad,Label21_2.Text=Responsable),Value('Num Proyecto Lean'),Descending)
+            ))
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =Min(160, Self.Height - 60)
+        Width: =1366
+        Y: =105
+        ZIndex: =4
+
+        Image1 As image:
+            Image: =montaje
+            OnSelect: =Select(Parent)
+            X: =16
+            Y: =30
+            ZIndex: =1
+
+        Title1 As label:
+            Height: =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =16
+            Text: |-
+                ="Numero proyecto LEAN: "&ThisItem.'Num Proyecto Lean'
+            VerticalAlign: =VerticalAlign.Top
+            Width: =300
+            X: |
+                =150
+            Y: =5
+            ZIndex: =2
+
+        Subtitle1 As label:
+            Height: |
+                =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: |-
+                ="UdN: "&ThisItem.UDN
+            VerticalAlign: =VerticalAlign.Top
+            Width: |
+                =300
+            X: |
+                =150
+            Y: |
+                =40
+            ZIndex: =3
+
+        NextArrow1 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Height: =60
+            Icon: =Icon.ChevronRight
+            OnSelect: =Select(Parent);Navigate('Informe LEAN_1',Fade)
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="Ver los detalles del elemento"
+            Width: =60
+            X: =1276
+            Y: =20
+            ZIndex: =4
+
+        Separator1 As rectangle:
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =5
+
+        Subtitle1_1 As label:
+            Align: =Align.Center
+            Height: |
+                =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =10
+            Text: =ThisItem.Status
+            Width: =100
+            X: =16
+            Y: =129
+            ZIndex: =6
+
+        Subtitle1_2 As label:
+            Align: =Align.Center
+            Height: |
+                =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =8
+            Text: =ThisItem.Responsable
+            ZIndex: =7
+
+        Title1_1 As label:
+            Height: =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =16
+            Text: =ThisItem.'Nombre del Proyecto'
+            VerticalAlign: =VerticalAlign.Top
+            Width: =750
+            X: =450
+            Y: =5
+            ZIndex: =8
+
+        Subtitle1_3 As label:
+            Height: |
+                =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: |-
+                ="Nº Proyecto: "&ThisItem.'Nº Proyecto de KAEFER'
+            VerticalAlign: =VerticalAlign.Top
+            Width: |
+                =300
+            X: =150
+            Y: =70
+            ZIndex: =9
+
+        Subtitle1_4 As label:
+            Height: |
+                =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: |-
+                ="Actividad: "&ThisItem.Actividad
+            VerticalAlign: =VerticalAlign.Top
+            Width: |
+                =300
+            X: =150
+            Y: =100
+            ZIndex: =10
+
+        Subtitle1_5 As label:
+            Height: |
+                =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: |-
+                ="Tipo Proyecto: "&ThisItem.Tipo
+            VerticalAlign: =VerticalAlign.Top
+            Width: |
+                =300
+            X: =150
+            Y: =130
+            ZIndex: =11
+
+        Subtitle1_6 As label:
+            Height: |
+                =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: |-
+                ="Impacto Directo: "&ThisItem.'IMPACTO DIRECTO (Si/No)'
+            VerticalAlign: =VerticalAlign.Top
+            Width: =200
+            X: =1066
+            Y: =40
+            ZIndex: =12
+
+        Subtitle1_7 As label:
+            Height: |
+                =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: |-
+                ="Cliente: "&ThisItem.Cliente
+            VerticalAlign: =VerticalAlign.Top
+            Width: |
+                =300
+            X: =450
+            Y: =40
+            ZIndex: =13
+
+        Subtitle1_8 As label:
+            Height: |
+                =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: |-
+                ="Unidades a reportar: "&ThisItem.'Unidades para reportar (h/m3 ó h/m2)'
+            VerticalAlign: =VerticalAlign.Top
+            Width: |
+                =300
+            X: =750
+            Y: =40
+            ZIndex: =14
+
+        Subtitle1_9 As label:
+            Height: |
+                =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: |-
+                ="Importe Total Proyecto: "&Text(Value(ThisItem.' Turnover Total del Proyecto en 2021 (€) '),"#,### €")
+            VerticalAlign: =VerticalAlign.Top
+            Width: |
+                =300
+            X: =450
+            Y: =70
+            ZIndex: =15
+
+        Subtitle1_10 As label:
+            Height: |
+                =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: |-
+                ="Fecha inicio: "&ThisItem.'Fecha de inicio (Dentro del 2021)'
+            VerticalAlign: =VerticalAlign.Top
+            Width: =200
+            X: =1066
+            Y: =70
+            ZIndex: =16
+
+        Subtitle1_11 As label:
+            Height: |
+                =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: |-
+                ="Fecha fin: "&ThisItem.'Fecha de fin (Dentro del 2021)'
+            VerticalAlign: =VerticalAlign.Top
+            Width: =200
+            X: =1066
+            Y: =100
+            ZIndex: =17
+
+        Subtitle1_12 As label:
+            Height: |
+                =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: |-
+                ="Inicio LEAN: "&ThisItem.'Cuando se empezó a hacer Lean?'
+            VerticalAlign: =VerticalAlign.Top
+            Width: =200
+            X: =1066
+            Y: =130
+            ZIndex: =18
+
+        Subtitle1_13 As label:
+            Height: |
+                =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: |-
+                ="Alcance 2021: "&Text(Value(ThisItem.' Alcance 2021 (m3 o m2) '),"##,###")
+            VerticalAlign: =VerticalAlign.Top
+            Width: |
+                =300
+            X: =750
+            Y: =70
+            ZIndex: =19
+
+        Subtitle1_14 As label:
+            Height: |
+                =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: |-
+                ="Horas 2021: "&Text(Value(ThisItem.'Horas 2021'),"##,###")
+            VerticalAlign: =VerticalAlign.Top
+            Width: =200
+            X: =450
+            Y: =100
+            ZIndex: =20
+
+        Subtitle1_15 As label:
+            Height: |
+                =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: |-
+                ="Coste Hora: "&Text(Value(ThisItem.' Coste hora previsto 2021 (€/h) '),"##.00 €")
+            VerticalAlign: =VerticalAlign.Top
+            Width: =200
+            X: =450
+            Y: =130
+            ZIndex: =21
+
+        Subtitle1_16 As label:
+            Height: |
+                =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: |-
+                ="Prod. 2020: "&Text(Value(ThisItem.'Prod. Ano 2020 h por Ud'),"0.00")
+            VerticalAlign: =VerticalAlign.Top
+            Width: =200
+            X: =750
+            Y: =100
+            ZIndex: =22
+
+        Subtitle1_17 As label:
+            Height: |
+                =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =11
+            Text: |-
+                ="Prod antes LEAN: "&Text(Value(ThisItem.' Prod. Antes de Lean h por Ud'),"0.00")
+            VerticalAlign: =VerticalAlign.Top
+            Width: =200
+            X: =750
+            Y: =130
+            ZIndex: =23
+
+        NextArrow1_1 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Height: =60
+            Icon: =Icon.Edit
+            OnSelect: =Set(editLEAN,true)
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="Ver los detalles del elemento"
+            Width: =60
+            X: =1276
+            Y: =85
+            ZIndex: =24
+
+    TextInput1 As text:
+        Default: =""
+        HintText: ="Filtro Proyecto"
+        Width: =200
+        X: =200
+        Y: =52
+        ZIndex: =5
+
+    Label1 As label:
+        FontWeight: =FontWeight.Semibold
+        Text: |-
+            ="Nº de proyectos: "&CountRows(Gallery1.AllItems)
+        Width: =212
+        X: =874
+        Y: =10
+        ZIndex: =6
+
+    TextInput1_1 As text:
+        Default: =""
+        HintText: ="Filtro UdN"
+        Width: =200
+        X: =420
+        Y: =52
+        ZIndex: =7
+
+    TextInput1_2 As text:
+        Default: =""
+        HintText: ="Filtro Actividad"
+        Width: =200
+        X: =640
+        Y: =52
+        ZIndex: =8
+
+    TextInput1_3 As text:
+        Default: =""
+        HintText: ="Filtro Responsable"
+        Width: =200
+        X: =860
+        Y: =50
+        ZIndex: =9
+
+    Icon2 As icon.Add:
+        Height: =50
+        Icon: =Icon.Add
+        OnSelect: =Set(addLEAN,true);Refresh('Definición Lean')
+        Width: =50
+        X: =1296
+        Y: =55
+        ZIndex: =10
+
+    Gallery2 As gallery.galleryVertical:
+        Fill: =RGBA(227, 234, 243, 1)
+        Height: =768
+        Items: =["1"]
+        Layout: =Layout.Vertical
+        ShowNavigation: =true
+        ShowScrollbar: =false
+        TemplateSize: =763
+        Visible: =addLEAN
+        Width: =1366
+        ZIndex: =11
+
+        TextInput3 As text:
+            Align: =Align.Center
+            Default: =Max('Definición Lean','Num Proyecto Lean')+1
+            Format: =TextFormat.Number
+            OnSelect: =Select(Parent)
+            Width: =75
+            X: =406
+            Y: =79
+            ZIndex: =1
+
+        ComboBox2 As combobox:
+            DisplayFields: =["Proyecto"]
+            InputTextPlaceholder: ="Nº Montaje"
+            Items: =col_Montajes.Proyecto
+            OnSelect: =Select(Parent)
+            SearchFields: =["Proyecto"]
+            SearchItems: =Search(col_Montajes.Proyecto,ComboBox2.SearchText,"Proyecto")
+            Width: =269
+            X: =481
+            Y: =145
+            ZIndex: =2
+
+        Label4 As label:
+            OnSelect: =Select(Parent)
+            Text: |-
+                ="Numero proyecto LEAN: "
+            Width: =250
+            X: =156
+            Y: =79
+            ZIndex: =3
+
+        Icon3 As icon.Cancel:
+            Icon: =Icon.Cancel
+            OnSelect: =Set(addLEAN,false);Reset(TextInput3_2);Reset(TextInput3_3);Reset(TextInput3_5);Reset(TextInput3_6);Reset(TextInput3_7)
+            X: =1292
+            ZIndex: =5
+
+        Button3 As button:
+            OnSelect: |-
+                =Patch('Definición Lean',Defaults('Definición Lean'),
+                {'Num Proyecto Lean':TextInput3.Text,
+                'Nombre del Proyecto':TextInput3_9.Text,
+                'Nº Proyecto de KAEFER':ComboBox2.Selected.Proyecto,
+                ' Turnover Total del Proyecto en 2021 (€) ':TextInput2.Text,
+                UDN:TextInput2_3.Text,
+                Actividad:TextInput2_4.Text,
+                Cliente:TextInput2_5.Text,
+                Responsable:TextInput2_6.Text,
+                Status:TextInput2_7.Text,
+                'Horas 2021':TextInput3_2.Text,
+                ' Coste hora previsto 2021 (€/h) ':TextInput3_3.Text,
+                'Unidades para reportar (h/m3 ó h/m2)':Dropdown1_1.SelectedText.Value,
+                ' Alcance 2021 (m3 o m2) ':TextInput3_5.Text,
+                'Prod. Ano 2020 h por Ud':TextInput3_6.Text,
+                ' Prod. Antes de Lean h por Ud':TextInput3_7.Text,
+                Tipo:Dropdown1_2.SelectedText.Value,
+                'IMPACTO DIRECTO (Si/No)':Dropdown1.SelectedText.Value,
+                'Fecha de inicio (Dentro del 2021)':Text(DatePicker1.SelectedDate,"dd/mm/yyyy"),
+                'Fecha de fin (Dentro del 2021)':Text(DatePicker1_1.SelectedDate,"dd/mm/yyyy"),
+                'Cuando se empezó a hacer Lean?':Text(DatePicker1_2.SelectedDate,"dd/mm/yyyy")
+                });
+                Set(addLEAN,false);
+                Refresh('Definición Lean')
+            Text: ="GUARDAR"
+            X: =648
+            Y: =708
+            ZIndex: =7
+
+        TextInput3_9 As text:
+            Default: =""
+            OnSelect: =Select(Parent)
+            Width: =450
+            X: =750
+            Y: =79
+            ZIndex: =37
+
+        Label4_12 As label:
+            OnSelect: =Select(Parent)
+            Text: |-
+                ="Nombre proyecto LEAN: "
+            Width: =250
+            X: =500
+            Y: =79
+            ZIndex: =38
+
+        Group7 As group:
+            Height: =5
+            Width: =5
+            X: =40
+            Y: =40
+            ZIndex: =39
+
+            Label4_7 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Impacto directo: "
+                Width: =200
+                X: =1024
+                Y: =204
+                ZIndex: =26
+
+            Dropdown1 As dropdown:
+                Items: =["NO","SI"]
+                OnSelect: =Select(Parent)
+                Width: =90
+                X: =1235
+                Y: =204
+                ZIndex: =27
+
+            Label4_8 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Fecha inicio: "
+                X: =1025
+                Y: =254
+                ZIndex: =28
+
+            DatePicker1 As datepicker:
+                Format: ="dd/mm/yyyy"
+                OnSelect: =Select(Parent)
+                Width: =150
+                X: =1175
+                Y: =254
+                ZIndex: =29
+
+            Label4_9 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Fecha fin: "
+                X: =1025
+                Y: =304
+                ZIndex: =30
+
+            DatePicker1_1 As datepicker:
+                Format: ="dd/mm/yyyy"
+                OnSelect: =Select(Parent)
+                Width: =150
+                X: =1175
+                Y: =304
+                ZIndex: =31
+
+            Label4_10 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Inicio LEAN: "
+                X: =1025
+                Y: =354
+                ZIndex: =32
+
+            DatePicker1_2 As datepicker:
+                Format: ="dd/mm/yyyy"
+                OnSelect: =Select(Parent)
+                Width: =150
+                X: =1175
+                Y: =354
+                ZIndex: =33
+
+        Group8 As group:
+            Height: =5
+            Width: =5
+            X: =40
+            Y: =40
+            ZIndex: =46
+
+            Label5 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="UdN: "
+                Width: =175
+                X: =20
+                Y: =254
+                ZIndex: =4
+
+            Label5_1 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Actividad: "
+                Width: =175
+                X: =20
+                Y: =304
+                ZIndex: =6
+
+            Label5_2 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Cliente: "
+                Width: =175
+                X: =20
+                Y: =354
+                ZIndex: =8
+
+            Label5_3 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Responsable: "
+                Width: =175
+                X: =20
+                Y: =404
+                ZIndex: =11
+
+            Label5_4 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Status: "
+                Width: =175
+                X: =20
+                Y: =454
+                ZIndex: =12
+
+            Label5_5 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Importe Total: "
+                Width: =175
+                X: =20
+                Y: =204
+                ZIndex: =13
+
+            Label5_6 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Nombre Proyecto: "
+                Width: =175
+                X: =20
+                Y: =504
+                ZIndex: =36
+
+            TextInput2 As text:
+                Default: |-
+                    =LookUp(col_InformeCompleto,Title=ComboBox2.Selected.Proyecto,Text(Value(Facturaci_x00f3_nInicial),"#,###.00 €"))
+                OnSelect: =Select(Parent)
+                Width: =300
+                X: =195
+                Y: =204
+                ZIndex: =39
+
+            TextInput2_3 As text:
+                Default: =LookUp(col_Montajes,Proyecto=ComboBox2.Selected.Proyecto,UdNegocio)
+                OnSelect: =Select(Parent)
+                Width: =300
+                X: =195
+                Y: =254
+                ZIndex: =40
+
+            TextInput2_4 As text:
+                Default: =LookUp(col_Actividad,Value(LookUp(col_Montajes,Proyecto=ComboBox2.Selected.Proyecto,Actividad))=Code,Name)
+                OnSelect: =Select(Parent)
+                Width: =300
+                X: =195
+                Y: =304
+                ZIndex: =41
+
+            TextInput2_5 As text:
+                Default: =LookUp(col_Montajes,Proyecto=ComboBox2.Selected.Proyecto,CardName)
+                OnSelect: =Select(Parent)
+                Width: =300
+                X: =195
+                Y: =354
+                ZIndex: =42
+
+            TextInput2_6 As text:
+                Default: =LookUp(col_InformeCompleto,Title=ComboBox2.Selected.Proyecto,Responsable)
+                OnSelect: =Select(Parent)
+                Width: =300
+                X: =195
+                Y: =404
+                ZIndex: =43
+
+            TextInput2_7 As text:
+                Default: ="Nuevo"
+                OnSelect: =Select(Parent)
+                Width: =300
+                X: =195
+                Y: =454
+                ZIndex: =44
+
+            TextInput2_8 As text:
+                Default: =LookUp(col_Montajes,Proyecto=ComboBox2.Selected.Proyecto,Name)
+                Height: =80
+                Mode: =TextMode.MultiLine
+                OnSelect: =Select(Parent)
+                Width: =300
+                X: =195
+                Y: =506
+                ZIndex: =45
+
+        Label7 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Semibold
+            OnSelect: =Select(Parent)
+            Size: =18
+            Text: ="AÑADIR PROYECTO LEAN"
+            Width: =658
+            X: =322
+            Y: =24
+            ZIndex: =48
+
+        Group10 As group:
+            Height: =5
+            Width: =5
+            X: =40
+            Y: =40
+            ZIndex: =48
+
+            TextInput3_2 As text:
+                Default: =""
+                Format: =TextFormat.Number
+                OnSelect: =Select(Parent)
+                Reset: =true
+                Width: =150
+                X: =775
+                Y: =204
+                ZIndex: =14
+
+            Label4_1 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Horas: "
+                Width: =250
+                X: =525
+                Y: =204
+                ZIndex: =15
+
+            TextInput3_3 As text:
+                Default: =""
+                Format: =TextFormat.Number
+                OnSelect: =Select(Parent)
+                Reset: =true
+                Width: =150
+                X: =775
+                Y: =254
+                ZIndex: =16
+
+            Label4_2 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Coste Hora: "
+                Width: =250
+                X: =525
+                Y: =254
+                ZIndex: =17
+
+            Label4_3 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Unidades a reportar: "
+                Width: =250
+                X: =525
+                Y: =304
+                ZIndex: =19
+
+            TextInput3_5 As text:
+                Default: =""
+                Format: =TextFormat.Number
+                OnSelect: =Select(Parent)
+                Reset: =true
+                Width: =150
+                X: =775
+                Y: =354
+                ZIndex: =20
+
+            Label4_4 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Alcance 2021: "
+                Width: =250
+                X: =525
+                Y: =354
+                ZIndex: =21
+
+            TextInput3_6 As text:
+                Default: =""
+                Format: =TextFormat.Number
+                OnSelect: =Select(Parent)
+                Reset: =true
+                Width: =150
+                X: =775
+                Y: =404
+                ZIndex: =22
+
+            Label4_5 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Prod. 2020: "
+                Width: =250
+                X: =525
+                Y: =404
+                ZIndex: =23
+
+            TextInput3_7 As text:
+                Default: =""
+                Format: =TextFormat.Number
+                OnSelect: =Select(Parent)
+                Reset: =true
+                Width: =150
+                X: =775
+                Y: =454
+                ZIndex: =24
+
+            Label4_6 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Prod. antes LEAN: "
+                Width: =250
+                X: =525
+                Y: =454
+                ZIndex: =25
+
+            Label4_11 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Tipo Proyecto: "
+                Width: =250
+                X: =526
+                Y: =504
+                ZIndex: =35
+
+            Dropdown1_1 As dropdown:
+                Items: =["h/m2","h/m3"]
+                OnSelect: =Select(Parent)
+                Width: =150
+                X: =775
+                Y: =304
+                ZIndex: =46
+
+            Dropdown1_2 As dropdown:
+                Items: |-
+                    =["Nueva construccion",
+                    "Mantenimiento/reparacion",
+                    "Parada",
+                    "Desmantelamiento",
+                    "Inspeccion",
+                    "Formacion",
+                    "Improd",
+                    "Restauracion"]
+                OnSelect: =Select(Parent)
+                Width: =275
+                X: =775
+                Y: =504
+                ZIndex: =47
+
+    Gallery2_3 As gallery.galleryVertical:
+        Fill: =RGBA(204, 231, 246, 1)
+        Height: =768
+        Items: =Gallery1.Selected
+        Layout: =Layout.Vertical
+        ShowNavigation: =true
+        ShowScrollbar: =false
+        TemplateSize: =763
+        Visible: =editLEAN
+        Width: =1366
+        ZIndex: =12
+
+        TextInput3_4 As text:
+            Align: =Align.Center
+            Default: =ThisItem.'Num Proyecto Lean'
+            Format: =TextFormat.Number
+            OnSelect: =Select(Parent)
+            Width: =75
+            X: =406
+            Y: =74
+            ZIndex: =1
+
+        ComboBox2_1 As combobox:
+            DefaultSelectedItems: =[ThisItem.'Nº Proyecto de KAEFER']
+            DisplayFields: =["Proyecto"]
+            InputTextPlaceholder: ="Nº Montaje"
+            Items: =col_Montajes.Proyecto
+            OnSelect: =Select(Parent)
+            SearchFields: =["Proyecto"]
+            SearchItems: =Search(col_Montajes.Proyecto,ComboBox2_1.SearchText,"Proyecto")
+            Width: =269
+            X: =481
+            Y: =140
+            ZIndex: =2
+
+        Label4_13 As label:
+            OnSelect: =Select(Parent)
+            Text: |-
+                ="Numero proyecto LEAN: "
+            Width: =250
+            X: =156
+            Y: =74
+            ZIndex: =3
+
+        Icon3_1 As icon.Cancel:
+            Icon: =Icon.Cancel
+            OnSelect: =Set(editLEAN,false)
+            X: =1292
+            ZIndex: =5
+
+        Button3_3 As button:
+            OnSelect: |-
+                =Patch('Definición Lean',
+                ThisItem,
+                {'Num Proyecto Lean':TextInput3_4.Text,
+                'Nombre del Proyecto':TextInput3_14.Text,
+                'Nº Proyecto de KAEFER':ComboBox2_1.Selected.Proyecto,
+                ' Turnover Total del Proyecto en 2021 (€) ':TextInput2_9.Text,
+                UDN:TextInput2_10.Text,
+                Actividad:TextInput2_11.Text,
+                Cliente:TextInput2_12.Text,
+                Responsable:TextInput2_13.Text,
+                Status:TextInput2_14.Text,
+                'Horas 2021':TextInput3_8.Text,
+                ' Coste hora previsto 2021 (€/h) ':TextInput3_10.Text,
+                'Unidades para reportar (h/m3 ó h/m2)':Dropdown1_5.SelectedText.Value,
+                ' Alcance 2021 (m3 o m2) ':TextInput3_11.Text,
+                'Prod. Ano 2020 h por Ud':TextInput3_12.Text,
+                ' Prod. Antes de Lean h por Ud':TextInput3_13.Text,
+                Tipo:Dropdown1_3.SelectedText.Value,
+                'IMPACTO DIRECTO (Si/No)':Dropdown1_4.SelectedText.Value,
+                'Fecha de inicio (Dentro del 2021)':Text(DatePicker1_3.SelectedDate,"dd/mm/yyyy"),
+                'Fecha de fin (Dentro del 2021)':Text(DatePicker1_4.SelectedDate,"dd/mm/yyyy"),
+                'Cuando se empezó a hacer Lean?':Text(DatePicker1_5.SelectedDate,"dd/mm/yyyy")
+                });
+                Set(editLEAN,false);
+                Refresh('Definición Lean')
+            Text: ="GUARDAR"
+            X: =648
+            Y: =708
+            ZIndex: =7
+
+        TextInput3_14 As text:
+            Default: =ThisItem.'Nombre del Proyecto'
+            OnSelect: =Select(Parent)
+            Width: =450
+            X: =750
+            Y: =74
+            ZIndex: =37
+
+        Label4_25 As label:
+            OnSelect: =Select(Parent)
+            Text: |-
+                ="Nombre proyecto LEAN: "
+            Width: =250
+            X: =500
+            Y: =74
+            ZIndex: =38
+
+        Group7_1 As group:
+            Height: =5
+            Width: =5
+            X: =40
+            Y: =40
+            ZIndex: =39
+
+            Label4_20 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Impacto directo: "
+                Width: =226
+                X: =1024
+                Y: =204
+                ZIndex: =26
+
+            Dropdown1_4 As dropdown:
+                Default: =ThisItem.'IMPACTO DIRECTO (Si/No)'
+                Items: =["NO","SI"]
+                OnSelect: =Select(Parent)
+                Width: =75
+                X: =1250
+                Y: =204
+                ZIndex: =27
+
+            Label4_21 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Fecha inicio: "
+                X: =1025
+                Y: =254
+                ZIndex: =28
+
+            DatePicker1_3 As datepicker:
+                DefaultDate: =ThisItem.'Fecha de inicio (Dentro del 2021)'
+                Format: ="dd/mm/yyyy"
+                OnSelect: =Select(Parent)
+                Width: =150
+                X: =1175
+                Y: =254
+                ZIndex: =29
+
+            Label4_22 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Fecha fin: "
+                X: =1025
+                Y: =304
+                ZIndex: =30
+
+            DatePicker1_4 As datepicker:
+                DefaultDate: =ThisItem.'Fecha de fin (Dentro del 2021)'
+                Format: ="dd/mm/yyyy"
+                OnSelect: =Select(Parent)
+                Width: =150
+                X: =1175
+                Y: =304
+                ZIndex: =31
+
+            Label4_23 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Inicio LEAN: "
+                X: =1025
+                Y: =354
+                ZIndex: =32
+
+            DatePicker1_5 As datepicker:
+                DefaultDate: =ThisItem.'Cuando se empezó a hacer Lean?'
+                Format: ="dd/mm/yyyy"
+                OnSelect: =Select(Parent)
+                Width: =150
+                X: =1175
+                Y: =354
+                ZIndex: =33
+
+        Group8_2 As group:
+            Height: =5
+            Width: =5
+            X: =40
+            Y: =40
+            ZIndex: =46
+
+            Label5_9 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="UdN: "
+                Width: =175
+                X: =20
+                Y: =254
+                ZIndex: =4
+
+            Label5_10 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Actividad: "
+                Width: =175
+                X: =20
+                Y: =304
+                ZIndex: =6
+
+            Label5_23 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Cliente: "
+                Width: =175
+                X: =20
+                Y: =354
+                ZIndex: =8
+
+            Label5_22 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Responsable: "
+                Width: =175
+                X: =20
+                Y: =404
+                ZIndex: =11
+
+            Label5_8 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Status: "
+                Width: =175
+                X: =20
+                Y: =454
+                ZIndex: =12
+
+            Label5_7 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Importe Total: "
+                Width: =175
+                X: =20
+                Y: =204
+                ZIndex: =13
+
+            Label5_24 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Nombre Proyecto: "
+                Width: =175
+                X: =20
+                Y: =504
+                ZIndex: =36
+
+            TextInput2_9 As text:
+                Default: =ThisItem.' Turnover Total del Proyecto en 2021 (€) '
+                OnSelect: =Select(Parent)
+                Width: =300
+                X: =195
+                Y: =204
+                ZIndex: =39
+
+            TextInput2_10 As text:
+                Default: =ThisItem.UDN
+                OnSelect: =Select(Parent)
+                Width: =300
+                X: =195
+                Y: =254
+                ZIndex: =40
+
+            TextInput2_11 As text:
+                Default: =ThisItem.Actividad
+                OnSelect: =Select(Parent)
+                Width: =300
+                X: =195
+                Y: =304
+                ZIndex: =41
+
+            TextInput2_12 As text:
+                Default: =ThisItem.Cliente
+                OnSelect: =Select(Parent)
+                Width: =300
+                X: =195
+                Y: =354
+                ZIndex: =42
+
+            TextInput2_13 As text:
+                Default: =ThisItem.Responsable
+                OnSelect: =Select(Parent)
+                Width: =300
+                X: =195
+                Y: =404
+                ZIndex: =43
+
+            TextInput2_14 As text:
+                Default: =ThisItem.Status
+                OnSelect: =Select(Parent)
+                Width: =300
+                X: =195
+                Y: =454
+                ZIndex: =44
+
+            TextInput2_15 As text:
+                Default: =ThisItem.'Nombre del Proyecto'
+                Height: =80
+                Mode: =TextMode.MultiLine
+                OnSelect: =Select(Parent)
+                Width: =300
+                X: =195
+                Y: =506
+                ZIndex: =45
+
+        Label7_1 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Semibold
+            OnSelect: =Select(Parent)
+            Size: =18
+            Text: ="EDITAR PROYECTO LEAN"
+            Width: =658
+            X: =321
+            Y: =12
+            ZIndex: =48
+
+        Group10_1 As group:
+            Height: =5
+            Width: =5
+            X: =40
+            Y: =40
+            ZIndex: =48
+
+            TextInput3_8 As text:
+                Default: =ThisItem.'Horas 2021'
+                Format: =TextFormat.Number
+                OnSelect: =Select(Parent)
+                Width: =150
+                X: =775
+                Y: =204
+                ZIndex: =14
+
+            Label4_14 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Horas: "
+                Width: =250
+                X: =525
+                Y: =204
+                ZIndex: =15
+
+            TextInput3_10 As text:
+                Default: =ThisItem.' Coste hora previsto 2021 (€/h) '
+                Format: =TextFormat.Number
+                OnSelect: =Select(Parent)
+                Width: =150
+                X: =775
+                Y: =254
+                ZIndex: =16
+
+            Label4_15 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Coste Hora: "
+                Width: =250
+                X: =525
+                Y: =254
+                ZIndex: =17
+
+            Label4_16 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Unidades a reportar: "
+                Width: =250
+                X: =525
+                Y: =304
+                ZIndex: =19
+
+            TextInput3_11 As text:
+                Default: =ThisItem.' Alcance 2021 (m3 o m2) '
+                Format: =TextFormat.Number
+                OnSelect: =Select(Parent)
+                Width: =150
+                X: =775
+                Y: =354
+                ZIndex: =20
+
+            Label4_17 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Alcance 2021: "
+                Width: =250
+                X: =525
+                Y: =354
+                ZIndex: =21
+
+            TextInput3_12 As text:
+                Default: =ThisItem.'Prod. Ano 2020 h por Ud'
+                Format: =TextFormat.Number
+                OnSelect: =Select(Parent)
+                Width: =150
+                X: =775
+                Y: =404
+                ZIndex: =22
+
+            Label4_18 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Prod. 2020: "
+                Width: =250
+                X: =525
+                Y: =404
+                ZIndex: =23
+
+            TextInput3_13 As text:
+                Default: =ThisItem.' Prod. Antes de Lean h por Ud'
+                Format: =TextFormat.Number
+                OnSelect: =Select(Parent)
+                Width: =150
+                X: =775
+                Y: =454
+                ZIndex: =24
+
+            Label4_19 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Prod. antes LEAN: "
+                Width: =250
+                X: =525
+                Y: =454
+                ZIndex: =25
+
+            Label4_24 As label:
+                OnSelect: =Select(Parent)
+                Text: |-
+                    ="Tipo Proyecto: "
+                Width: =250
+                X: =526
+                Y: =504
+                ZIndex: =35
+
+            Dropdown1_5 As dropdown:
+                Default: =ThisItem.'Unidades para reportar (h/m3 ó h/m2)'
+                Items: =["h/m2","h/m3"]
+                OnSelect: =Select(Parent)
+                Width: =150
+                X: =775
+                Y: =304
+                ZIndex: =46
+
+            Dropdown1_3 As dropdown:
+                Default: =ThisItem.Tipo
+                Items: |-
+                    =["Nueva construccion",
+                    "Mantenimiento/reparacion",
+                    "Parada",
+                    "Desmantelamiento",
+                    "Inspeccion",
+                    "Formacion",
+                    "Improd",
+                    "Restauracion"]
+                OnSelect: =Select(Parent)
+                Width: =275
+                X: =775
+                Y: =504
+                ZIndex: =47
+
+        Icon3_2 As icon.Cancel:
+            Icon: =Icon.Trash
+            OnSelect: =Remove('Definición Lean', Gallery1.Selected);Set(editLEAN,false)
+            X: =20
+            Y: =10
+            ZIndex: =49
+

@@ -1,0 +1,26 @@
+"'Informe TOP' As screen":
+
+    Button2_1 As button:
+        OnSelect: =Back()
+        Text: ="Volver"
+        X: =24
+        Y: =12
+        ZIndex: =1
+
+    Label2 As label:
+        Align: =Align.Center
+        Size: =20
+        Text: ="Informe TOP"
+        Width: =300
+        X: =500
+        Y: =12
+        ZIndex: =2
+
+    Image4_8 As image:
+        Height: =42
+        Image: ='KAEFER count on us'
+        Width: =200
+        X: =1140
+        Y: =10
+        ZIndex: =3
+

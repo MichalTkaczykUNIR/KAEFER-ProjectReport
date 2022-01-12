@@ -1,0 +1,1711 @@
+Proyectos As screen:
+
+    "Gallery6_1 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+        Height: =354
+        Items: =Filter(col_Montajes,Proyecto=TextInput4_1.Text)
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =354
+        Width: =1366
+        Y: =54
+        ZIndex: =1
+
+        Label7_20 As label:
+            Fill: =RGBA(232, 244, 217, 1)
+            Height: =25
+            OnSelect: =Select(Parent)
+            Size: =8
+            Text: ="Fact+OENF-OFPE"
+            Visible: =false
+            Width: =166
+            X: =1200
+            Y: =131
+            ZIndex: =1
+
+        Label7_23 As label:
+            Fill: =RGBA(232, 244, 217, 1)
+            Height: =25
+            OnSelect: =Select(Parent)
+            Size: =8
+            Text: ="Coste*Margen Final Previsto - Coste*Margen anterior"
+            Visible: =false
+            Width: =166
+            X: =1200
+            Y: =156
+            ZIndex: =2
+
+        Image7_1 As image:
+            Image: =montaje
+            OnSelect: =Select(Parent)
+            X: =25
+            Y: =85
+            ZIndex: =3
+
+        NextArrow5_1 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Height: =60
+            Icon: =Icon.ChevronRight
+            OnSelect: =Select(Gallery6_1);Navigate(PBI,Fade)
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="Ver los detalles del elemento"
+            Width: =60
+            X: =635
+            Y: =8
+            ZIndex: =6
+
+        Separator6_1 As rectangle:
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =7
+
+        Subtitle6_12 As label:
+            Align: =Align.Center
+            Height: =25
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =10
+            Text: |-
+                ="Status: "&If(ThisItem.Status="S","ABIERTO","CERRADO")
+            Width: =128
+            X: =11
+            Y: =5
+            ZIndex: =8
+
+        Button4_1 As button:
+            DisplayMode: =If(Value(LookUp(Sort(col_InformeCompleto,ID,Descending),Title=ThisItem.Proyecto,Periodo))>=Value(Dropdown2_2.SelectedText.Value),DisplayMode.Disabled,DisplayMode.Edit)
+            OnSelect: |-
+                =Patch(Informe_Montajes_SP,Defaults(Informe_Montajes_SP),{Title:ThisItem.Proyecto,Periodo:Dropdown2_2.SelectedText.Value,
+                Margen_x0025_:TextInput1_12.Text,Facturaci_x00f3_n:TextInput1_14.Text,FechaCierre:TextInput1_16.Text,AvanceEstimado:TextInput1_18.Text,
+                ObraEjecutadanoFacturada:TextInput1_13.Text,ObraFacturadaPendientedeEjecutar:TextInput1_15.Text,
+                Reclamaciones:TextInput1_17.Text,PropuestadeCierre:If(Len(TextInput1_19.Text)>0,"X",""),Responsable:TextInput8_2.Text,
+                InformeTOP:TextInput1_10.Text,InformeLEAN:TextInput1_11.Text,Horas:Subtitle6_16.Text,HorasMes:Subtitle6_17.Text,
+                Coste:Subtitle6_18.Text,CosteMes:Subtitle6_19.Text,Facturado:Subtitle6_20.Text,FacturadoMes:Subtitle6_21.Text,
+                Margen:Subtitle6_22.Text,MargenMes:Subtitle6_23.Text,Variaci_x00f3_nMargen:Label9_1.Text,MargenInicial:TextInput7_2.Text,
+                Facturaci_x00f3_nInicial:TextInput7_3.Text,UdN:Gallery1_2.Selected.UdNegocio,Actividad:Label11_1.Text,Sector:Label11_38.Text,
+                useremail:TextInput8_3.Text,ImpactoActividad:TextInput7_6.Text,Estado:"Pendiente",OData__x0061_ct2022:TextInput1_20.Text,OData__x0061_ct2023:TextInput1_21.Text,MargenAnterior:Label5_14.Text,TNAlquiler:TextInput1_22.Text});
+                Refresh(Informe_Montajes_SP);
+                ClearCollect(col_Actividad,SAP_ACTIVIDADES);
+                ClearCollect(col_Montajes,ShowColumns(SAP_Montajes,"Proyecto","Name","CardName","Actividad","Start","Cierre","Lugar","Margeninic","Factinic","Sector","Cliente","Status","UdN","UdNegocio","Responsable"));
+                ClearCollect(col_InformeCompleto,Sort(Informe_Montajes_SP,ID,Descending));
+                ClearCollect(col_Comentarios,Sort(Informe_Montajes_Comentarios_SP,ID,Descending));
+                Navigate(UdN,Fade)
+            Text: ="GUARDAR"
+            Width: =300
+            X: =1020
+            Y: =8
+            ZIndex: =41
+
+        Label9_1 As label:
+            Align: =Align.Center
+            Fill: =If(Value(Label9_1.Text)>0,RGBA(0, 255, 0, 0.6),If(Value(Label9_1.Text)<0,RGBA(255, 0, 0, 0.6),RGBA(10, 0, 255, 0.1)))
+            Height: =30
+            OnSelect: =Select(Parent)
+            Text: |-
+                =If(IsBlank(TextInput1_12),Text(Value(LookUp(Filter(Sort(Informe_Montajes_SP,ID,Descending),Periodo=Value(Dropdown2_2.Selected.Value)),Value(Title6_1.Text)=Title,Margen_x0025_))*100-Label5_14*100,"#,### %"),Text((TextInput1_12-Label5_14)*100,"[$-en-US]#,### %"))
+            Width: =120
+            X: =1223
+            Y: =151
+            ZIndex: =49
+
+        Label10_1 As label:
+            Align: =Align.Center
+            Height: =30
+            OnSelect: =Select(Parent)
+            Size: =10
+            Text: |-
+                ="Cambio Margen:"
+            Width: =120
+            X: =1223
+            Y: =121
+            ZIndex: =50
+
+        Label11_1 As label:
+            Align: =Align.Center
+            Height: =25
+            OnSelect: =Select(Parent)
+            Size: =10
+            Text: =LookUp(col_Actividad,Value(ThisItem.Actividad)=Value(Code),Name)
+            X: =5
+            Y: =30
+            ZIndex: =53
+
+        Label11_2 As label:
+            Align: =Align.Center
+            Fill: =RGBA(241, 244, 249, 1)
+            Height: =20
+            OnSelect: =Select(Parent)
+            Size: =10
+            Text: ="Detalle coste a origen"
+            Width: =597
+            X: =761
+            Y: =187
+            ZIndex: =57
+
+        Label7_21 As label:
+            Fill: =RGBA(232, 244, 217, 1)
+            Height: =25
+            OnSelect: =Select(Parent)
+            Size: =8
+            Text: ="Fact+OENF-OFPE/coste"
+            Visible: =false
+            Width: =166
+            X: =1200
+            Y: =106
+            ZIndex: =73
+
+        Label7_22 As label:
+            Align: =Align.Right
+            Fill: =RGBA(232, 244, 217, 1)
+            Height: =25
+            OnSelect: =Select(Parent)
+            Size: =10
+            Text: ="Impacto Actividad"
+            Width: =175
+            X: =925
+            Y: =156
+            ZIndex: =74
+
+        TextInput7_6 As text:
+            Align: =Align.Center
+            Default: |-
+                =Text(Value(Round(Subtitle6_18.Text*(1+TextInput1_12.Text)-Value(1+LookUp(Filter(col_InformeCompleto,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,Margen_x0025_))*Value(LookUp(Filter(col_InformeCompleto,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,Coste)),0)),"#,###")
+            DisplayMode: =DisplayMode.View
+            Fill: =RGBA(232, 244, 217, 1)
+            Height: =25
+            OnSelect: =Select(Parent)
+            Size: =12
+            Width: =100
+            X: =1100
+            Y: =156
+            ZIndex: =75
+
+        Group17 As group:
+            Height: =5
+            Width: =5
+            X: =40
+            Y: =40
+            ZIndex: =75
+
+            Subtitle6_18 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Height: =25
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: |-
+                    =Text(Round(TextInput4_2+TextInput4_3+TextInput4_4+TextInput4_5+TextInput4_6+TextInput4_7,0),"#,###")
+                Width: =125
+                X: =380
+                Y: =175
+                ZIndex: =9
+
+            Subtitle6_16 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Height: =25
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: |-
+                    =Text(Round(TextInput4_14*1,0),"#,###")
+                Width: =125
+                X: =255
+                Y: =175
+                ZIndex: =10
+
+            Subtitle6_20 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Height: =25
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: |-
+                    =Text(Round(TextInput4_16*1,0),"#,###")
+                Width: =125
+                X: =505
+                Y: =175
+                ZIndex: =11
+
+            Subtitle6_17 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Height: =25
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: |-
+                    =Text(Subtitle6_16-Value(LookUp(Filter(col_InformeCompleto,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,Horas)),"#,###")
+                Width: =125
+                X: =255
+                Y: =200
+                ZIndex: =12
+
+            Subtitle6_19 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Height: =25
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: |-
+                    =Text(Subtitle6_18-Value(LookUp(Filter(col_InformeCompleto,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,Coste)),"#,###")
+                Width: =125
+                X: =380
+                Y: =200
+                ZIndex: =13
+
+            Subtitle6_21 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Height: =25
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: |-
+                    =Text(Subtitle6_20-Value(LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,Facturado)),"#,###")
+                Width: =125
+                X: =505
+                Y: =200
+                ZIndex: =14
+
+            Subtitle6_22 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Height: =25
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: |-
+                    =Text((Subtitle6_20-Subtitle6_18)/Subtitle6_18*100,"# %")
+                Width: =125
+                X: =630
+                Y: =175
+                ZIndex: =15
+
+            Subtitle6_23 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Height: =25
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: |-
+                    =Text((Subtitle6_21-Subtitle6_19)/Subtitle6_19*100,"# %")
+                Width: =125
+                X: =630
+                Y: =200
+                ZIndex: =16
+
+            Label7_12 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Fill: =RGBA(241, 244, 249, 1)
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =12
+                Text: ="Horas"
+                Width: =125
+                X: =255
+                Y: =150
+                ZIndex: =42
+
+            Label7_14 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Fill: =RGBA(241, 244, 249, 1)
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =12
+                Text: ="Coste €"
+                Width: =125
+                X: =380
+                Y: =150
+                ZIndex: =43
+
+            Label7_16 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Fill: =RGBA(241, 244, 249, 1)
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =12
+                Text: ="Facturado €"
+                Width: =125
+                X: =505
+                Y: =150
+                ZIndex: =44
+
+            Label7_18 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Fill: =RGBA(241, 244, 249, 1)
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =12
+                Text: ="Margen %"
+                Width: =125
+                X: =630
+                Y: =150
+                ZIndex: =45
+
+            Label7_13 As label:
+                Align: =Align.Right
+                BorderThickness: =1
+                Fill: =RGBA(241, 244, 249, 1)
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =12
+                Text: ="A Origen"
+                Width: =100
+                X: =155
+                Y: =175
+                ZIndex: =55
+
+            Label7_15 As label:
+                Align: =Align.Right
+                BorderThickness: =1
+                Fill: =RGBA(241, 244, 249, 1)
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =12
+                Text: ="Mes"
+                Width: =100
+                X: =155
+                Y: =200
+                ZIndex: =56
+
+        Group4 As group:
+            Height: =5
+            Width: =5
+            X: =40
+            Y: =40
+            ZIndex: =81
+
+            Title6_1 As label:
+                Height: =30
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: =ThisItem.Proyecto
+                Width: =200
+                X: =Image7_1.X + Image7_1.Width + 24
+                ZIndex: =4
+
+            Subtitle6_13 As label:
+                Height: =25
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: =ThisItem.Name
+                Width: =550
+                X: =Title6_1.X
+                Y: =30
+                ZIndex: =5
+
+            Subtitle6_15 As label:
+                Height: =25
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: |-
+                    ="Responsable: "
+                Width: =120
+                X: =Title6_1.X
+                Y: =90
+                ZIndex: =36
+
+            Subtitle6_14 As label:
+                Height: =25
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =12
+                Text: =ThisItem.CardName
+                Width: =750
+                X: =163
+                Y: =60
+                ZIndex: =37
+
+            TextInput8_2 As text:
+                Default: =LookUp(SAP_Operarios_Activos,ThisItem.Responsable=EmpID,'Full Name')
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =12
+                Width: =400
+                X: =283
+                Y: =90
+                ZIndex: =38
+
+            Label7_10 As label:
+                Align: =Align.Right
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =10
+                Text: |-
+                    ="Margen Inicial:"
+                Width: =175
+                X: =925
+                Y: =55
+                ZIndex: =46
+
+            Label7_11 As label:
+                Align: =Align.Right
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =10
+                Text: |-
+                    ="Facturación Inicial:"
+                Width: =175
+                X: =925
+                Y: =80
+                ZIndex: =47
+
+            TextInput7_2 As text:
+                Align: =Align.Center
+                Default: =ThisItem.Margeninic&" %"
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =12
+                Width: =100
+                X: =1100
+                Y: =55
+                ZIndex: =51
+
+            TextInput7_3 As text:
+                Align: =Align.Center
+                Default: |-
+                    =Text(Value(Substitute(ThisItem.Factinic,".",",")),"#,###")
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =12
+                Width: =100
+                X: =1100
+                Y: =80
+                ZIndex: =52
+
+            TextInput8_3 As text:
+                Default: =User().Email
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =12
+                Width: =230
+                X: =680
+                Y: =90
+                ZIndex: =54
+
+            Label7_17 As label:
+                Align: =Align.Right
+                Fill: =RGBA(232, 244, 217, 1)
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =10
+                Text: |-
+                    ="Margen actual:"
+                Width: =175
+                X: =925
+                Y: =106
+                ZIndex: =69
+
+            Label7_19 As label:
+                Align: =Align.Right
+                Fill: =RGBA(232, 244, 217, 1)
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =10
+                Text: |-
+                    ="Derecho a cobro actual:"
+                Width: =175
+                X: =925
+                Y: =131
+                ZIndex: =70
+
+            TextInput7_4 As text:
+                Align: =Align.Center
+                Default: |-
+                    =Text((TextInput7_5.Text-Subtitle6_18.Text)/Subtitle6_18.Text*100,"# %")
+                DisplayMode: =DisplayMode.View
+                Fill: =RGBA(232, 244, 217, 1)
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =12
+                Width: =100
+                X: =1100
+                Y: =106
+                ZIndex: =71
+
+            TextInput7_5 As text:
+                Align: =Align.Center
+                Default: |-
+                    =Text(Value(Round(TextInput4_16*1,0))+Value(TextInput1_13.Text)-Value(TextInput1_15.Text),"#,###")
+                DisplayMode: =DisplayMode.View
+                Fill: =RGBA(232, 244, 217, 1)
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =12
+                Width: =100
+                X: =1100
+                Y: =131
+                ZIndex: =72
+
+        Label15 As label:
+            Align: =Align.Center
+            OnSelect: =Select(Parent)
+            Text: |-
+                ="Actualizado a: "&LookUp(Sort(col_InformeCompleto,ID,Descending),Title=ThisItem.Proyecto,Periodo)
+            Y: =187
+            ZIndex: =82
+
+        Label11_38 As label:
+            Align: =Align.Center
+            Height: =25
+            OnSelect: =Select(Parent)
+            Size: =10
+            Text: =LookUp(SAP_SECTORCLIENTE,Value(ThisItem.Sector)=Value(Code),Name)
+            X: =5
+            Y: =60
+            ZIndex: =83
+
+        Label5_56 As label:
+            Align: =Align.Center
+            BorderThickness: =1
+            Fill: =RGBA(241, 244, 249, 1)
+            Height: =25
+            OnSelect: =Select(Parent)
+            Size: =10
+            Text: |-
+                =If(IsBlank(LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,TNAlquiler)),"N/A",Text(Value(LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,TNAlquiler)),"#,###"))
+            Visible: =If(Label11_1.Text="Andamios",true,false)
+            Width: =100
+            X: =1215
+            Y: =285
+            ZIndex: =84
+
+        TextInput1_22 As text:
+            Align: =Align.Center
+            BorderThickness: =1
+            Default: |-
+                =If(Checkbox1_1.Value=false,"",Text(Value(LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,TNAlquiler)),"#,###"))
+            Fill: =If(Len(TextInput1_22.Text)>0,RGBA(232, 244, 217, 1),RGBA(253, 222, 207, 1))
+            FontWeight: =FontWeight.Semibold
+            Format: =TextFormat.Number
+            Height: =30
+            HintText: |-
+                =Text(Value(LookUp(Filter(Sort(Informe_Montajes_SP,ID,Descending),Periodo=Value(Dropdown2_2.Selected.Value)),Value(Title6_1.Text)=Title,TNAlquiler)),"#,### €")
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Reset: =true
+            Size: =11
+            Visible: =If(Label11_1.Text="Andamios",true,false)
+            Width: =100
+            X: =1215
+            Y: =310
+            ZIndex: =85
+
+        Label5_57 As label:
+            Align: =Align.Center
+            BorderThickness: =1
+            Fill: =RGBA(241, 244, 249, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =25
+            OnSelect: =Select(Parent)
+            Size: =8
+            Text: ="€ Alquiler andamio"
+            Visible: =If(Label11_1.Text="Andamios",true,false)
+            Width: =100
+            X: =1215
+            Y: =260
+            ZIndex: =86
+
+        Dropdown3 As dropdown:
+            Default: =Text(Date(Right(LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,FechaCierre),4),Mid(LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,FechaCierre),4,2),1),"yyyy-mm")
+            Fill: =RGBA(232, 244, 217, 1)
+            Height: =30
+            Items: =[Text(Now(),"yyyy-mm"),Text(Now()+30,"yyyy-mm"),Text(Now()+60,"yyyy-mm"),Text(Now()+90,"yyyy-mm"),Text(Now()+120,"yyyy-mm"),Text(Now()+150,"yyyy-mm"),Text(Now()+180,"yyyy-mm"),Text(Now()+210,"yyyy-mm"),Text(Now()+240,"yyyy-mm"),Text(Now()+270,"yyyy-mm"),Text(Now()+300,"yyyy-mm"),Text(Now()+330,"yyyy-mm"),Text(Now()+360,"yyyy-mm")]
+            OnSelect: =Select(Parent)
+            Size: =8
+            Width: =100
+            X: =380
+            Y: =310
+            ZIndex: =87
+
+        Label19 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 0, 0, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =55
+            OnSelect: =Select(Parent)
+            Size: =16
+            Text: =If(Value(LookUp(Sort(col_InformeCompleto,ID,Descending),Title=ThisItem.Proyecto,Periodo))=Value(Dropdown2_2.SelectedText.Value),"Proyecto ya reportado en este periodo","Periodo bloqueado")
+            Visible: =If(Value(LookUp(Sort(col_InformeCompleto,ID,Descending),Title=ThisItem.Proyecto,Periodo))>=Value(Dropdown2_2.SelectedText.Value),true,false)
+            Width: =261
+            X: =749
+            ZIndex: =88
+
+        Group12 As group:
+            Height: =5
+            Width: =5
+            X: =40
+            Y: =40
+            ZIndex: =92
+
+            Label5_14 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Fill: =RGBA(241, 244, 249, 1)
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =10
+                Text: |-
+                    =Text(If(IsBlank(LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,Margen_x0025_)),"N/A",LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,Margen_x0025_))*100,"#,### %")
+                Width: =100
+                X: =180
+                Y: =285
+                ZIndex: =17
+
+            Label5_16 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Fill: =RGBA(241, 244, 249, 1)
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =10
+                Text: |-
+                    =If(IsBlank(LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,Facturaci_x00f3_n)),"N/A",Text(Value(LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,Facturaci_x00f3_n)),"#,###"))
+                Width: =100
+                X: =280
+                Y: =285
+                ZIndex: =18
+
+            Label5_18 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Fill: =RGBA(241, 244, 249, 1)
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =10
+                Text: =If(IsBlank(LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,FechaCierre)),"N/A",LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,FechaCierre))
+                Width: =100
+                X: =380
+                Y: =285
+                ZIndex: =19
+
+            Label5_20 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Fill: =RGBA(241, 244, 249, 1)
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =10
+                Text: |-
+                    =Text(If(IsBlank(LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,AvanceEstimado)),"N/A",LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,AvanceEstimado))*100,"#,### %")
+                Width: =100
+                X: =480
+                Y: =285
+                ZIndex: =20
+
+            TextInput1_12 As text:
+                Align: =Align.Center
+                BorderThickness: =1
+                Default: =If(Checkbox1_1.Value=false,"",LookUp(Filter(col_InformeCompleto,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,Margen_x0025_))
+                Fill: =If(Len(TextInput1_12.Text)>0,RGBA(232, 244, 217, 1),RGBA(253, 222, 207, 1))
+                FontWeight: =FontWeight.Semibold
+                Format: =TextFormat.Number
+                Height: =30
+                HintText: |-
+                    =Text(Value(LookUp(Filter(Sort(Informe_Montajes_SP,ID,Descending),Periodo=Value(Dropdown2_2.Selected.Value)),Value(Title6_1.Text)=Title,Margen_x0025_))*100,"#,### %")
+                OnSelect: =Select(Parent)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =11
+                Width: =100
+                X: =180
+                Y: =310
+                ZIndex: =21
+
+            Checkbox1_1 As checkbox:
+                Height: =40
+                OnSelect: =Select(Parent)
+                Size: =9
+                Text: ="Sin Cambios"
+                X: =23
+                Y: =245
+                ZIndex: =22
+
+            TextInput1_14 As text:
+                Align: =Align.Center
+                BorderThickness: =1
+                Default: |-
+                    =If(Checkbox1_1.Value=false,"",Text(Value(LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,Facturaci_x00f3_n)),"#,###"))
+                Fill: =If(Len(TextInput1_14.Text)>0,RGBA(232, 244, 217, 1),RGBA(253, 222, 207, 1))
+                FontWeight: =FontWeight.Semibold
+                Format: =TextFormat.Number
+                Height: =30
+                HintText: |-
+                    =Text(Value(LookUp(Filter(Sort(Informe_Montajes_SP,ID,Descending),Periodo=Value(Dropdown2_2.Selected.Value)),Value(Title6_1.Text)=Title,Facturaci_x00f3_n)),"#,### €")
+                OnSelect: =Select(Parent)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =11
+                Width: =100
+                X: =280
+                Y: =310
+                ZIndex: =23
+
+            TextInput1_16 As text:
+                Align: =Align.Center
+                BorderThickness: =1
+                Default: =Text(Date(Left(Dropdown3.SelectedText.Value,4),Right(Dropdown3.SelectedText.Value,2)+1,1)-1,"dd/mm/yyyy")
+                Fill: =If(Len(TextInput1_16.Text)>0,RGBA(232, 244, 217, 1),RGBA(253, 222, 207, 1))
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                HintText: =LookUp(Filter(Sort(Informe_Montajes_SP,ID,Descending),Periodo=Value(Dropdown2_2.Selected.Value)),Value(Title6_1.Text)=Title,FechaCierre)
+                OnSelect: =Select(Parent)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =11
+                Tooltip: ="Último día del mes"
+                Width: =100
+                X: =380
+                Y: =310
+                ZIndex: =24
+
+            TextInput1_18 As text:
+                Align: =Align.Center
+                BorderThickness: =1
+                Default: |-
+                    =If(Checkbox1_1.Value=false,"",Text(Value(LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,AvanceEstimado))*100,"#,### %"))
+                Fill: =If(Len(TextInput1_18.Text)>0,RGBA(232, 244, 217, 1),RGBA(253, 222, 207, 1))
+                FontWeight: =FontWeight.Semibold
+                Format: =TextFormat.Number
+                Height: =30
+                HintText: |-
+                    =Text(Value(LookUp(Filter(Sort(Informe_Montajes_SP,ID,Descending),Periodo=Value(Dropdown2_2.Selected.Value)),Value(Title6_1.Text)=Title,AvanceEstimado))*100,"#,### %")
+                OnSelect: =Select(Parent)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =11
+                Width: =100
+                X: =480
+                Y: =310
+                ZIndex: =25
+
+            Label5_11 As label:
+                Align: =Align.Right
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =9
+                Text: ="Previsión Anterior"
+                X: =10
+                Y: =285
+                ZIndex: =26
+
+            Label5_12 As label:
+                Align: =Align.Right
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                OnSelect: =Select(Parent)
+                Size: =12
+                Text: ="Previsión Nueva"
+                X: =10
+                Y: =310
+                ZIndex: =27
+
+            Label5_15 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Fill: =RGBA(241, 244, 249, 1)
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =10
+                Text: |-
+                    =If(IsBlank(LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,ObraEjecutadanoFacturada)),"N/A",Text(Value(LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,ObraEjecutadanoFacturada)),"#,###"))
+                Width: =100
+                X: =580
+                Y: =285
+                ZIndex: =28
+
+            Label5_17 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Fill: =RGBA(241, 244, 249, 1)
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =10
+                Text: |-
+                    =If(IsBlank(LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,ObraFacturadaPendientedeEjecutar)),"N/A",Text(Value(LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,ObraFacturadaPendientedeEjecutar)),"#,###"))
+                Width: =100
+                X: =680
+                Y: =285
+                ZIndex: =29
+
+            Label5_19 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Fill: =RGBA(241, 244, 249, 1)
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =10
+                Text: |-
+                    =If(IsBlank(LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,Reclamaciones)),"N/A",Text(Value(LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,Reclamaciones)),"#,###"))
+                Width: =115
+                X: =780
+                Y: =285
+                ZIndex: =30
+
+            Label5_21 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Fill: =RGBA(241, 244, 249, 1)
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =10
+                Text: =If(IsBlank(LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,PropuestadeCierre)),"N/A",LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,PropuestadeCierre))
+                Width: =120
+                X: =895
+                Y: =285
+                ZIndex: =31
+
+            TextInput1_13 As text:
+                Align: =Align.Center
+                BorderThickness: =1
+                Default: |-
+                    =If(Checkbox1_1.Value=false,"",Text(Value(LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,ObraEjecutadanoFacturada)),"#,###"))
+                Fill: =If(Len(TextInput1_13.Text)>0,RGBA(232, 244, 217, 1),RGBA(253, 222, 207, 1))
+                FontWeight: =FontWeight.Semibold
+                Format: =TextFormat.Number
+                Height: =30
+                HintText: |-
+                    =Text(Value(LookUp(Filter(Sort(Informe_Montajes_SP,ID,Descending),Periodo=Value(Dropdown2_2.Selected.Value)),Value(Title6_1.Text)=Title,ObraEjecutadanoFacturada)),"#,### €")
+                OnSelect: =Select(Parent)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =11
+                Tooltip: ="OBRA EJECUTADA NO FACTURADA"
+                Width: =100
+                X: =580
+                Y: =310
+                ZIndex: =32
+
+            TextInput1_15 As text:
+                Align: =Align.Center
+                BorderThickness: =1
+                Default: |-
+                    =If(Checkbox1_1.Value=false,"",Text(Value(LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,ObraFacturadaPendientedeEjecutar)),"#,###"))
+                Fill: =If(Len(TextInput1_15.Text)>0,RGBA(232, 244, 217, 1),RGBA(253, 222, 207, 1))
+                FontWeight: =FontWeight.Semibold
+                Format: =TextFormat.Number
+                Height: =30
+                HintText: |-
+                    =Text(Value(LookUp(Filter(Sort(Informe_Montajes_SP,ID,Descending),Periodo=Value(Dropdown2_2.Selected.Value)),Value(Title6_1.Text)=Title,ObraFacturadaPendientedeEjecutar)),"#,### €")
+                OnSelect: =Select(Parent)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =11
+                Tooltip: ="OBRA FACTURADA PENDIENTE DE EJECUTAR"
+                Width: =100
+                X: =680
+                Y: =310
+                ZIndex: =33
+
+            TextInput1_17 As text:
+                Align: =Align.Center
+                BorderThickness: =1
+                Default: |-
+                    =If(Checkbox1_1.Value=false,"",Text(Value(LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,Reclamaciones)),"#,###"))
+                Fill: =If(Len(TextInput1_17.Text)>0,RGBA(232, 244, 217, 1),RGBA(253, 222, 207, 1))
+                FontWeight: =FontWeight.Semibold
+                Format: =TextFormat.Number
+                Height: =30
+                HintText: |-
+                    =Text(Value(LookUp(Filter(Sort(Informe_Montajes_SP,ID,Descending),Periodo=Value(Dropdown2_2.Selected.Value)),Value(Title6_1.Text)=Title,Reclamaciones)),"#,### €")
+                OnSelect: =Select(Parent)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =11
+                Width: =115
+                X: =780
+                Y: =310
+                ZIndex: =34
+
+            TextInput1_19 As text:
+                Align: =Align.Center
+                BorderThickness: =1
+                Default: =If(Checkbox1_1.Value=false,"",LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,PropuestadeCierre))
+                Fill: =If(Len(TextInput1_19.Text)>0,RGBA(232, 244, 217, 1),RGBA(253, 222, 207, 1))
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                HintText: =LookUp(Filter(Sort(Informe_Montajes_SP,ID,Descending),Periodo=Value(Dropdown2_2.Selected.Value)),Value(Title6_1.Text)=Title,PropuestadeCierre)
+                OnSelect: =Select(Parent)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =11
+                Width: =120
+                X: =895
+                Y: =310
+                ZIndex: =35
+
+            TextInput1_10 As text:
+                Align: =Align.Center
+                BorderThickness: =1
+                Default: =LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,InformeTOP)
+                Fill: =If(Len(TextInput1_10.Text)>0,RGBA(232, 244, 217, 1),RGBA(253, 222, 207, 1))
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                HintText: =LookUp(Filter(Sort(Informe_Montajes_SP,ID,Descending),Periodo=Value(Dropdown2_2.Selected.Value)),Value(Title6_1.Text)=Title,InformeTOP)
+                OnSelect: =Select(Parent)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =11
+                Tooltip: ="OBRA EJECUTADA NO FACTURADA"
+                Width: =50
+                X: =1015
+                Y: =310
+                ZIndex: =39
+
+            TextInput1_11 As text:
+                Align: =Align.Center
+                BorderThickness: =1
+                Default: =LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,InformeLEAN)
+                Fill: =If(Len(TextInput1_11.Text)>0,RGBA(232, 244, 217, 1),RGBA(253, 222, 207, 1))
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                HintText: =LookUp(Filter(Sort(Informe_Montajes_SP,ID,Descending),Periodo=Value(Dropdown2_2.Selected.Value)),Value(Title6_1.Text)=Title,InformeLEAN)
+                OnSelect: =Select(Parent)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =11
+                Tooltip: ="OBRA EJECUTADA NO FACTURADA"
+                Width: =50
+                X: =1065
+                Y: =310
+                ZIndex: =40
+
+            Label5_13 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Fill: =RGBA(241, 244, 249, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =10
+                Text: ="Margen %"
+                Width: =100
+                X: =180
+                Y: =260
+                ZIndex: =48
+
+            Label5_41 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Fill: =RGBA(241, 244, 249, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =10
+                Text: ="Facturación"
+                Width: =100
+                X: =280
+                Y: =260
+                ZIndex: =58
+
+            Label5_42 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Fill: =RGBA(241, 244, 249, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =10
+                Text: ="Fecha Cierre"
+                Width: =100
+                X: =380
+                Y: =260
+                ZIndex: =59
+
+            Label5_43 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Fill: =RGBA(241, 244, 249, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =10
+                Text: ="Avance %"
+                Width: =100
+                X: =480
+                Y: =260
+                ZIndex: =60
+
+            Label5_44 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Fill: =RGBA(241, 244, 249, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =10
+                Text: ="OENF"
+                Tooltip: ="OBRA EJECUTADA NO FACTURADA"
+                Width: =100
+                X: =580
+                Y: =260
+                ZIndex: =61
+
+            Label5_45 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Fill: =RGBA(241, 244, 249, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =10
+                Text: ="OFPE"
+                Tooltip: ="OBRA FACTURADA PENDIENTE DE EJECUTAR"
+                Width: =100
+                X: =680
+                Y: =260
+                ZIndex: =62
+
+            Label5_46 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Fill: =RGBA(241, 244, 249, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =10
+                Text: ="Reclamaciones"
+                Width: =115
+                X: =780
+                Y: =260
+                ZIndex: =63
+
+            Label5_47 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Fill: =RGBA(241, 244, 249, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =10
+                Text: ="Propuesta cierre"
+                Width: =120
+                X: =895
+                Y: =260
+                ZIndex: =64
+
+            Label5_48 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Fill: =RGBA(241, 244, 249, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =10
+                Text: ="TOP"
+                Width: =50
+                X: =1015
+                Y: =260
+                ZIndex: =65
+
+            Label5_49 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Fill: =RGBA(241, 244, 249, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =10
+                Text: ="LEAN"
+                Width: =50
+                X: =1065
+                Y: =260
+                ZIndex: =66
+
+            Label5_50 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Fill: =RGBA(241, 244, 249, 1)
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =10
+                Text: =If(IsBlank(LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,InformeTOP)),"N/A",LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,InformeTOP))
+                Width: =50
+                X: =1015
+                Y: =285
+                ZIndex: =67
+
+            Label5_51 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Fill: =RGBA(241, 244, 249, 1)
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =10
+                Text: =If(IsBlank(LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,InformeLEAN)),"N/A",LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,InformeLEAN))
+                Width: =50
+                X: =1065
+                Y: =285
+                ZIndex: =68
+
+            TextInput1_20 As text:
+                Align: =Align.Center
+                BorderThickness: =1
+                Default: =LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,OData__x0061_ct2022)
+                Fill: =If(Len(TextInput1_20.Text)>0,RGBA(232, 244, 217, 1),RGBA(253, 222, 207, 1))
+                FontWeight: =FontWeight.Semibold
+                Format: =TextFormat.Number
+                Height: =30
+                HintText: |-
+                    =Text(Value(LookUp(Filter(Sort(Informe_Montajes_SP,ID,Descending),Periodo=Value(Dropdown2_2.Selected.Value)),Value(Title6_1.Text)=Title,OData__x0061_ct2022))*100,"#,### %")
+                OnSelect: =Select(Parent)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =11
+                Tooltip: ="OBRA EJECUTADA NO FACTURADA"
+                Width: =50
+                X: =1115
+                Y: =310
+                ZIndex: =76
+
+            Label5_52 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Fill: =RGBA(241, 244, 249, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =9
+                Text: ="%2022"
+                Width: =50
+                X: =1115
+                Y: =260
+                ZIndex: =77
+
+            Label5_53 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Fill: =RGBA(241, 244, 249, 1)
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =10
+                Text: =If(IsBlank(LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,InformeLEAN)),"N/A",LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,OData__x0061_ct2022))
+                Width: =50
+                X: =1115
+                Y: =285
+                ZIndex: =78
+
+            TextInput1_21 As text:
+                Align: =Align.Center
+                BorderThickness: =1
+                Default: =LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,OData__x0061_ct2023)
+                Fill: =If(Len(TextInput1_21.Text)>0,RGBA(232, 244, 217, 1),RGBA(253, 222, 207, 1))
+                FontWeight: =FontWeight.Semibold
+                Format: =TextFormat.Number
+                Height: =30
+                HintText: |-
+                    =Text(Value(LookUp(Filter(Sort(Informe_Montajes_SP,ID,Descending),Periodo=Value(Dropdown2_2.Selected.Value)),Value(Title6_1.Text)=Title,OData__x0061_ct2023))*100,"#,### %")
+                OnSelect: =Select(Parent)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =11
+                Tooltip: =
+                Width: =50
+                X: =1165
+                Y: =310
+                ZIndex: =79
+
+            Label5_54 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Fill: =RGBA(241, 244, 249, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =9
+                Text: ="%2023"
+                Width: =50
+                X: =1165
+                Y: =260
+                ZIndex: =80
+
+            Label5_55 As label:
+                Align: =Align.Center
+                BorderThickness: =1
+                Fill: =RGBA(241, 244, 249, 1)
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =10
+                Text: =If(IsBlank(LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,InformeLEAN)),"N/A",LookUp(Filter(Informe_Montajes_SP,Periodo=Text(Dropdown2_2.Selected.Value-1)),ThisItem.Proyecto=Title,OData__x0061_ct2023))
+                Width: =50
+                X: =1165
+                Y: =285
+                ZIndex: =81
+
+    TextInput4_1 As text:
+        Default: =Gallery5_2.Selected.Proyecto
+        DisplayMode: =DisplayMode.View
+        Height: =35
+        Size: =12
+        Visible: =false
+        Width: =115
+        X: =347
+        Y: =9
+        ZIndex: =2
+
+    Button1_7 As button:
+        Height: =35
+        OnSelect: =Navigate(UdN, ScreenTransition.Fade)
+        Text: ="Volver"
+        X: =15
+        Y: =8
+        ZIndex: =3
+
+    Dropdown2_2 As dropdown:
+        Default: =If(Or(Month(Today())=10,Month(Today())=11,Month(Today())=12),Year(Today())&"0"&Month(Today()),Year(Today())&"00"&Month(Today()))-1
+        Height: =35
+        Items: =[2022006,2022005,2022004,2022003,2022002,2022001,2021012,2021011,2021010,2021009,2021008,2021007,2021006,2021005,2021004,2021003,2021002,2021001,2020012,2020011,2020010,2020009,2020008,2020007,2020006,2020005,2020004,2020003,2020002,2020001,2019012,2019011,2019010,2019009,2019008,2019007,2019006,2019005,2019004,2019003,2019002,2019001]
+        Reset: =true
+        Size: =12
+        Width: =152
+        X: =194
+        Y: =9
+        ZIndex: =5
+
+    Image4_15 As image:
+        Height: =42
+        Image: ='KAEFER count on us'
+        Width: =200
+        X: =1140
+        Y: =10
+        ZIndex: =9
+
+    "Gallery2_2 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+        BorderThickness: =1
+        Height: =289
+        Items: =Sort(Filter(Informe_Montajes_Comentarios_SP,Montaje=TextInput4_1.Text),Creado,Descending)
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =120
+        Width: =497
+        X: =843
+        Y: =408
+        ZIndex: =11
+
+        Image1_2 As image:
+            Height: =34
+            OnSelect: =Select(Parent)
+            Visible: =false
+            Width: =35
+            X: =462
+            ZIndex: =1
+
+        Title1_6 As label:
+            Height: =20
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =10
+            Text: =ThisItem.Título
+            VerticalAlign: =VerticalAlign.Top
+            Width: =497
+            ZIndex: =2
+
+        Separator1_2 As rectangle:
+            Height: =0
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =5
+
+        Title1_7 As label:
+            Height: =20
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =10
+            Text: =ThisItem.Fecha
+            VerticalAlign: =VerticalAlign.Top
+            Width: =497
+            Y: =20
+            ZIndex: =6
+
+        Title1_8 As label:
+            Height: =79
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =12
+            Text: =ThisItem.Comentario
+            VerticalAlign: =VerticalAlign.Top
+            Width: =497
+            Y: =40
+            ZIndex: =7
+
+    TextInput2_2 As text:
+        Default: =""
+        Height: =71
+        Mode: =TextMode.MultiLine
+        Width: =497
+        X: =843
+        Y: =697
+        ZIndex: =12
+
+    Button3_2 As button:
+        OnSelect: |-
+            =If(Len(TextInput2_2.Text)=0,false,
+            Patch(Informe_Montajes_Comentarios_SP,
+            Defaults(Informe_Montajes_Comentarios_SP),{Montaje:TextInput4_1.Text,Título:User().FullName,Fecha:Now(),Comentario:TextInput2_2.Text,Periodo:Dropdown2_2.SelectedText.Value}));
+            Refresh(Informe_Montajes_Comentarios_SP);Reset(TextInput2_2)
+        Text: ="Enviar mensaje"
+        X: =1180
+        Y: =728
+        ZIndex: =13
+
+    Group6 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =37
+
+        TextInput4_2 As text:
+            Align: =Align.Center
+            Default: |-
+                =Text(Value(Substitute(LookUp(SAP_COSTES_Horas_SP,Montaje=TextInput4_1.Text,'importe horas'),".",",")),"#,###")
+            Height: =20
+            Size: =9
+            Width: =75
+            X: =836
+            Y: =284
+            ZIndex: =21
+
+        TextInput4_3 As text:
+            Align: =Align.Center
+            Default: |-
+                =Text(Value(Substitute(LookUp(SAP_COSTES_EVIs_SP,Montaje=TextInput4_1.Text,'Importe EVIs'),".",",")),"#,###")
+            Height: =20
+            Size: =9
+            Width: =75
+            X: =911
+            Y: =284
+            ZIndex: =22
+
+        TextInput4_4 As text:
+            Align: =Align.Center
+            Default: |-
+                =Text(Value(Substitute(LookUp(SAP_COSTE_Materiales_SP,Montaje=TextInput4_1.Text,'Importe Materiales'),".",",")),"#,###")
+            Height: =20
+            Size: =9
+            Width: =75
+            X: =986
+            Y: =284
+            ZIndex: =23
+
+        TextInput4_5 As text:
+            Align: =Align.Center
+            Default: |-
+                =Text(Value(Substitute(LookUp(SAP_COSTE_Servicios_SP,Montaje=TextInput4_1.Text,'Importe Servicios'),".",",")),"#,###")
+            Height: =20
+            Size: =9
+            Width: =75
+            X: =1061
+            Y: =284
+            ZIndex: =24
+
+        TextInput4_6 As text:
+            Align: =Align.Center
+            Default: |-
+                =Text(Value(Substitute(LookUp(SAP_COSTES_Subcontratos_SP,Montaje=TextInput4_1.Text,'Importe Subcontratos'),".",",")),"#,###")
+            Height: =20
+            Size: =9
+            Width: =75
+            X: =1136
+            Y: =284
+            ZIndex: =25
+
+        TextInput4_7 As text:
+            Align: =Align.Center
+            Default: |-
+                =Text(Value(Substitute(LookUp(SAP_COSTES_Andamios_SP,Montaje=TextInput4_1.Text,'Importe Andamios'),".",",")),"#,###")
+            Height: =20
+            Size: =9
+            Width: =75
+            X: =1211
+            Y: =284
+            ZIndex: =26
+
+        TextInput4_8 As text:
+            Align: =Align.Center
+            Default: ="C.Horas"
+            Fill: =RGBA(241, 244, 249, 1)
+            Height: =20
+            Size: =9
+            Width: =75
+            X: =836
+            Y: =264
+            ZIndex: =27
+
+        TextInput4_9 As text:
+            Align: =Align.Center
+            Default: ="E.V.I.s"
+            Fill: =RGBA(241, 244, 249, 1)
+            Height: =20
+            Size: =9
+            Width: =75
+            X: =911
+            Y: =264
+            ZIndex: =28
+
+        TextInput4_10 As text:
+            Align: =Align.Center
+            Default: ="Materiales"
+            Fill: =RGBA(241, 244, 249, 1)
+            Height: =20
+            Size: =9
+            Width: =75
+            X: =986
+            Y: =264
+            ZIndex: =29
+
+        TextInput4_11 As text:
+            Align: =Align.Center
+            Default: ="Servicios"
+            Fill: =RGBA(241, 244, 249, 1)
+            Height: =20
+            Size: =9
+            Width: =75
+            X: =1061
+            Y: =264
+            ZIndex: =30
+
+        TextInput4_12 As text:
+            Align: =Align.Center
+            Default: ="Subcontr."
+            Fill: =RGBA(241, 244, 249, 1)
+            Height: =20
+            Size: =9
+            Width: =75
+            X: =1136
+            Y: =264
+            ZIndex: =31
+
+        TextInput4_13 As text:
+            Align: =Align.Center
+            Default: ="Andamios"
+            Fill: =RGBA(241, 244, 249, 1)
+            Height: =20
+            Size: =9
+            Width: =75
+            X: =1211
+            Y: =264
+            ZIndex: =32
+
+        TextInput4_14 As text:
+            Align: =Align.Center
+            Default: |-
+                =Text(Value(Substitute(LookUp(SAP_COSTES_Horas_SP,Montaje=TextInput4_1.Text,Horas),".",",")),"#,###")
+            Height: =20
+            Size: =9
+            Width: =75
+            X: =761
+            Y: =284
+            ZIndex: =33
+
+        TextInput4_15 As text:
+            Align: =Align.Center
+            Default: ="Horas"
+            Fill: =RGBA(241, 244, 249, 1)
+            Height: =20
+            Size: =9
+            Width: =75
+            X: =761
+            Y: =264
+            ZIndex: =34
+
+        TextInput4_16 As text:
+            Align: =Align.Center
+            Default: |-
+                =Text(Value(Substitute(LookUp(SAP_COSTES_Facturación_SP,Montaje=TextInput4_1.Text,'Importe Factura'),".",",")),"#,###")
+            Height: =20
+            Size: =9
+            Width: =75
+            X: =1286
+            Y: =284
+            ZIndex: =35
+
+        TextInput4_17 As text:
+            Align: =Align.Center
+            Default: ="Facturado"
+            Fill: =RGBA(241, 244, 249, 1)
+            Height: =20
+            Size: =9
+            Width: =75
+            X: =1286
+            Y: =264
+            ZIndex: =36
+
+    CompositeLineChart3 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =37
+
+        Title4 As label:
+            Align: =Align.Center
+            Height: =21
+            Text: ="Evolución Coste y Facturación"
+            Width: =400
+            X: =437
+            Y: =408
+            ZIndex: =38
+
+        LineChart3 As lineChart:
+            Font: =Font.'Open Sans'
+            Height: =335
+            Items: =col_inf_mont
+            NumberOfSeries: =4
+            X: =437
+            Y: =433
+            ZIndex: =39
+
+    CompositeLineChart3_1 As group:
+        Height: =5
+        Width: =5
+        X: =20
+        Y: =40
+        ZIndex: =40
+
+        Title4_1 As label:
+            Align: =Align.Center
+            Height: =28
+            Text: ="Evolución Margen %"
+            Width: =400
+            Y: =408
+            ZIndex: =41
+
+        LineChart3_1 As lineChart:
+            Font: =Font.'Open Sans'
+            Height: =335
+            ItemColorSet: =[RGBA(49, 130, 93, 1),RGBA(48,166,103, 1), RGBA(200,193,108,1), RGBA(246,199,144,1), RGBA(247,199,114,1), RGBA(247,180,91,1), RGBA(246,143,100,1), RGBA(212,96,104,1), RGBA(148, 110, 176, 1), RGBA(118, 154, 204, 1), RGBA(96, 197, 234, 1)]
+            Items: =col_inf_mont
+            NumberOfSeries: =2
+            Y: =433
+            ZIndex: =42
+
+    Legend2_1 As legend:
+        Height: =50
+        ItemColorSet: =LineChart3.ItemColorSet
+        Items: =LineChart3.SeriesLabels
+        Size: =9
+        Width: =359
+        X: =488
+        Y: =429
+        ZIndex: =47
+
+    Legend2_2 As legend:
+        Height: =42
+        ItemColorSet: =LineChart3_1.ItemColorSet
+        Items: =LineChart3_1.SeriesLabels
+        Size: =9
+        Width: =359
+        X: =39
+        Y: =429
+        ZIndex: =48
+
+    Button1_8 As button:
+        Height: =35
+        OnSelect: =Navigate('Informe TOP', ScreenTransition.Fade)
+        Text: ="Informe TOP"
+        X: =386
+        Y: =9
+        ZIndex: =49
+
+    Button1_9 As button:
+        Height: =35
+        OnSelect: =Navigate('Informe LEAN', ScreenTransition.Fade)
+        Text: ="Informe LEAN"
+        X: =572
+        Y: =8
+        ZIndex: =50
+

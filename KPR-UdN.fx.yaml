@@ -1,0 +1,560 @@
+UdN As screen:
+    BackgroundImage: =
+    Fill: =RGBA(0, 0, 0, 0)
+    ImagePosition: =ImagePosition.Tile
+
+    "Gallery5_2 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+        Height: =543
+        Items: |-
+            =If(Or(Label21_4.Text="Directivo",Label21_4.Text="RUN"),
+            Sort(Filter(col_Montajes,Actividad=Gallery8_1.Selected.Actividad,UdNegocio=Gallery1_2.Selected.UdNegocio),Proyecto,Descending),
+            Sort(Filter(col_Montajes,Actividad=Gallery8_1.Selected.Actividad,UdNegocio=Gallery1_2.Selected.UdNegocio,Responsable=Label21_6.Text),Proyecto,Descending))
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =132
+        Width: =888
+        X: =478
+        Y: =215
+        ZIndex: =5
+
+        Image6_4 As image:
+            Height: =94
+            Image: =montaje
+            OnSelect: =Select(Parent)
+            Width: =94
+            X: =18
+            Y: =5
+            ZIndex: =1
+
+        Title8_4 As label:
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =16
+            Text: |-
+                ="Numero Montaje: "&ThisItem.Proyecto
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - Image6_4.Width - 104
+            X: =Image6_4.X + Image6_4.Width + 24
+            Y: =5
+            ZIndex: =2
+
+        Subtitle3_10 As label:
+            Height: =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =12
+            Text: |-
+                ="Nombre Proyecto: "&ThisItem.Name
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Title8_4.Width
+            X: =Title8_4.X
+            Y: =30
+            ZIndex: =3
+
+        NextArrow7_2 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Height: =60
+            Icon: =Icon.ChevronRight
+            OnSelect: |-
+                =Select(Gallery5_2);
+                Navigate(Proyectos,Fade);
+                Refresh(Informe_Montajes_Comentarios_SP);
+                Refresh(Informe_Montajes_SP);
+                ClearCollect(col_inf_mont,ShowColumns(AddColumns(Filter(Informe_Montajes_SP,ThisItem.Proyecto=Title),"Margen mes",Margen*100,"Margen previsto",Margen_x0025_*100),"Horas","HorasMes","Margen","Periodo","Title","Margen_x0025_","Margen mes","Margen previsto","Coste","CosteMes","Facturado","FacturadoMes"))
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="Ver los detalles del elemento"
+            Width: =60
+            X: =800
+            Y: =6
+            ZIndex: =4
+
+        Separator5_2 As rectangle:
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =5
+
+        Subtitle3_12 As label:
+            Height: =21
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =12
+            Text: |-
+                ="UdN: "&ThisItem.UdNegocio
+            VerticalAlign: =VerticalAlign.Top
+            Width: =154
+            X: =Title8_4.X
+            Y: =103
+            ZIndex: =6
+
+        Subtitle3_13 As label:
+            Height: =21
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =12
+            Text: |-
+                ="Act.: "&LookUp(col_Actividad,Value(ThisItem.Actividad)=Value(Code),Name)
+            VerticalAlign: =VerticalAlign.Top
+            Width: =215
+            X: =306
+            Y: =103
+            ZIndex: =7
+
+        Label1_2 As label:
+            Align: =Align.Center
+            Height: =25
+            OnSelect: =Select(Parent)
+            Text: =If(ThisItem.Status="S","ABIERTO","CERRADO")
+            Width: =110
+            X: =18
+            Y: =105
+            ZIndex: =8
+
+        Subtitle3_11 As label:
+            Height: =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =12
+            Text: =ThisItem.CardName
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Title8_4.Width
+            X: =Title8_4.X
+            Y: =60
+            ZIndex: =9
+
+        Subtitle13_4 As label:
+            Height: =41
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =12
+            Text: |-
+                ="Responsable: "&LookUp(SAP_Operarios_Activos,ThisItem.Responsable=EmpID,'Full Name')
+            VerticalAlign: =VerticalAlign.Top
+            Width: =337
+            X: =521
+            Y: =83
+            ZIndex: =10
+
+        Subtitle13_5 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =12
+            Text: |-
+                ="Actualizado a: "&LookUp(Sort(col_InformeCompleto,ID,Descending),Title=ThisItem.Proyecto,Periodo)
+            VerticalAlign: =VerticalAlign.Top
+            Width: =250
+            X: =521
+            ZIndex: =11
+
+        Label9 As label:
+            Fill: |
+                =If(Label20_1.Text=LookUp(Sort(col_InformeCompleto,ID,Descending),Title=ThisItem.Proyecto,Periodo),RGBA(141, 198, 63, 1),RGBA(255, 0, 63, 1))
+            Height: =20
+            OnSelect: =Select(Parent)
+            Text: =
+            Width: =94
+            X: =18
+            Y: =6
+            ZIndex: =12
+
+    "Gallery8_1 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+        Height: =543
+        Items: =Sort(GroupBy(Filter(col_Montajes,UdNegocio=Gallery1_2.Selected.UdNegocio,Not(Actividad="22"),Not(Actividad="26")),"Actividad","UdN"),Actividad,Ascending)
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =88
+        Width: =478
+        Y: =225
+        ZIndex: =8
+
+        Image9_1 As image:
+            Height: =71
+            Image: =Actividades_1
+            OnSelect: =Select(Parent)
+            Width: =91
+            X: =7
+            Y: =8
+            ZIndex: =1
+
+        Title9_2 As label:
+            FontWeight: =FontWeight.Normal
+            Height: =25
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =16
+            Text: =ThisItem.Actividad
+            VerticalAlign: =VerticalAlign.Top
+            Visible: =false
+            Width: =286
+            X: =120
+            Y: =32
+            ZIndex: =2
+
+        NextArrow8_1 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Height: =60
+            Icon: =Icon.ChevronRight
+            OnSelect: =Select(Gallery8_1)
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="Ver los detalles del elemento"
+            Width: =60
+            X: =398
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =4
+
+        Separator8_1 As rectangle:
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =5
+
+        Subtitle5_2 As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =20
+            Text: =LookUp(col_Actividad,Value(ThisItem.Actividad)=Value(Code),Name)
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Title9_2.Width
+            X: =120
+            ZIndex: =6
+
+        Title9_3 As label:
+            FontWeight: =FontWeight.Normal
+            Height: =25
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =16
+            Text: |-
+                ="Total Nº Montajes: "&CountRows(Filter(col_Montajes,ThisItem.Actividad=Actividad,UdNegocio=Gallery1_2.Selected.UdNegocio))
+            VerticalAlign: =VerticalAlign.Top
+            Width: =286
+            X: =120
+            Y: =61
+            ZIndex: =7
+
+    Image4_13 As image:
+        Height: =70
+        Image: ='KAEFER count on us'
+        Width: =290
+        X: =459
+        Y: =10
+        ZIndex: =10
+
+    Label3_2 As label:
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        Size: =11
+        Text: |-
+            ="Total Montajes Abiertos: "&CountRows(col_Montajes)
+        Width: =300
+        X: =770
+        ZIndex: =12
+
+    "Gallery1_2 As gallery.'BrowseLayout_Horizontal_TwoTextOneImageVariant_ver4.0'":
+        Height: =124
+        Items: |-
+            =If(Label21_4.Text="Directivo",
+                Sort(
+                Filter(
+                    GroupBy(col_Montajes,
+                        "UdNegocio","Proyecto"),
+                        !(UdNegocio="Deleg.Puertollano"),!(UdNegocio="Scaffolding"),!(UdNegocio="Desamiantado"),!(UdNegocio="Rope Access"),!(UdNegocio="Pintura")),
+                        UdNegocio,Ascending),
+                        GroupBy(Filter(col_Montajes,UdNegocio=Label21_5.Text),
+                        "UdNegocio","Proyecto"))
+                        
+        TemplatePadding: =0
+        TemplateSize: =113
+        Width: =1366
+        Y: =85
+        ZIndex: =13
+
+        Image4_2 As image:
+            Height: =50
+            Image: =UdN_1
+            Width: =44
+            X: =39
+            Y: =9
+            ZIndex: =1
+
+        Title4_2 As label:
+            Align: =Align.Center
+            Height: =53
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =14
+            Text: =ThisItem.UdNegocio
+            VerticalAlign: =VerticalAlign.Top
+            Width: =112
+            X: =1
+            Y: =59
+            ZIndex: =2
+
+    Label21_2 As label:
+        Align: =Align.Center
+        Height: =20
+        Size: =8
+        Text: =LookUp(KAEFER_Usuarios,User().Email='E-mail',Nombre)
+        Width: =210
+        X: =1073
+        ZIndex: =14
+
+    Image2_1 As image:
+        Height: =80
+        Image: =User().Image
+        RadiusBottomLeft: =50
+        RadiusBottomRight: =50
+        RadiusTopLeft: =50
+        RadiusTopRight: =50
+        Width: =82
+        X: =1284
+        ZIndex: =15
+
+    Label21_3 As label:
+        Align: =Align.Center
+        Height: =20
+        Size: =8
+        Text: =User().Email
+        Width: =211
+        X: =1072
+        Y: =20
+        ZIndex: =16
+
+    Label3_9 As label:
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        Size: =11
+        Text: |-
+            ="Total Montajes Abiertos UdN: "&CountRows(Filter(col_Montajes,UdNegocio=Gallery1_2.Selected.UdNegocio,Not(Actividad="22"),Not(Actividad="26")))
+        Width: =300
+        X: =770
+        Y: =30
+        ZIndex: =17
+
+    Label3_10 As label:
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        Size: =11
+        Text: |-
+            ="Total Montajes Abiertos UdN y Act.: "&CountRows(Filter(col_Montajes,UdNegocio=Gallery1_2.Selected.UdNegocio,Actividad=Gallery8_1.Selected.Actividad))
+        Width: =300
+        X: =770
+        Y: =60
+        ZIndex: =18
+
+    Label21_4 As label:
+        Align: =Align.Center
+        Height: =20
+        Size: =8
+        Text: =LookUp(KAEFER_Usuarios,User().Email='E-mail','Perfil LEAN')
+        Width: =211
+        X: =1073
+        Y: =40
+        ZIndex: =20
+
+    Label21_5 As label:
+        Align: =Align.Center
+        Height: =25
+        Size: =8
+        Text: =LookUp(KAEFER_Usuarios,User().Email='E-mail',UdN)
+        Width: =211
+        X: =1073
+        Y: =60
+        ZIndex: =21
+
+    Label21_6 As label:
+        Align: =Align.Center
+        Height: =15
+        Size: =8
+        Text: =LookUp(SAP_Operarios_Activos,Label21_7.Text=Codigo,EmpID)
+        Width: =100
+        X: =1084
+        Y: =85
+        ZIndex: =22
+
+    Label21_7 As label:
+        Align: =Align.Center
+        Height: =15
+        Size: =8
+        Text: =LookUp(KAEFER_Usuarios,User().Email='E-mail',Codigo)
+        Width: =100
+        X: =1184
+        Y: =85
+        ZIndex: =23
+
+    Button7_2 As button:
+        OnSelect: =Navigate('Informe LEAN', ScreenTransition.Fade)
+        Text: ="Informe LEAN"
+        Width: =215
+        X: =200
+        Y: =50
+        ZIndex: =24
+
+    Button7_3 As button:
+        OnSelect: |-
+            =Navigate(IM_edit, ScreenTransition.Fade);Clear(col_RUN);Clear(col_controlling);
+            ClearCollect(col_InformeCompleto,Sort(Informe_Montajes_SP,ID,Descending));
+            ClearCollect(col_Comentarios,Sort(Informe_Montajes_Comentarios_SP,ID,Descending));
+            Refresh(Informe_Montajes_SP);
+            If(And(Toggle1.Value,Toggle1_1.Value,Toggle1_2.Value,Toggle1_3.Value,Toggle1_5.Value),
+            ClearCollect(Col_InformeProyecto,Filter(Informe_Montajes_SP,Periodo=Dropdown2_3.SelectedText.Value,UdN=ComboBox1.Selected.Value,Actividad=Dropdown2_5.SelectedText.Value,Sector=Dropdown2_6.Selected.Name,Responsable=Dropdown2_7.Selected.Responsable)),
+            If(And(Toggle1.Value,Toggle1_1.Value,Toggle1_2.Value,Toggle1_3.Value),
+            ClearCollect(Col_InformeProyecto,Filter(Informe_Montajes_SP,Periodo=Dropdown2_3.SelectedText.Value,UdN=ComboBox1.Selected.Value,Actividad=Dropdown2_5.SelectedText.Value,Sector=Dropdown2_6.Selected.Name)),
+            If(And(Toggle1.Value,Toggle1_1.Value,Toggle1_2.Value,Toggle1_5.Value),
+            ClearCollect(Col_InformeProyecto,Filter(Informe_Montajes_SP,Periodo=Dropdown2_3.SelectedText.Value,UdN=ComboBox1.Selected.Value,Actividad=Dropdown2_5.SelectedText.Value,Responsable=Dropdown2_7.Selected.Responsable)),
+            If(And(Toggle1.Value,Toggle1_1.Value,Toggle1_3.Value,Toggle1_5.Value),
+            ClearCollect(Col_InformeProyecto,Filter(Informe_Montajes_SP,Periodo=Dropdown2_3.SelectedText.Value,UdN=ComboBox1.Selected.Value,Sector=Dropdown2_6.Selected.Name,Responsable=Dropdown2_7.Selected.Responsable)),
+            If(And(Toggle1.Value,Toggle1_2.Value,Toggle1_3.Value,Toggle1_5.Value),
+            ClearCollect(Col_InformeProyecto,Filter(Informe_Montajes_SP,Periodo=Dropdown2_3.SelectedText.Value,Actividad=Dropdown2_5.SelectedText.Value,Sector=Dropdown2_6.Selected.Name,Responsable=Dropdown2_7.Selected.Responsable)),
+            If(And(Toggle1_1.Value,Toggle1_2.Value,Toggle1_3.Value,Toggle1_5.Value),
+            ClearCollect(Col_InformeProyecto,Filter(Informe_Montajes_SP,UdN=ComboBox1.Selected.Value,Actividad=Dropdown2_5.SelectedText.Value,Sector=Dropdown2_6.Selected.Name,Responsable=Dropdown2_7.Selected.Responsable)),
+            If(And(Toggle1.Value,Toggle1_1.Value,Toggle1_2.Value),
+            ClearCollect(Col_InformeProyecto,Filter(Informe_Montajes_SP,Periodo=Dropdown2_3.SelectedText.Value,UdN=ComboBox1.Selected.Value,Actividad=Dropdown2_5.SelectedText.Value)),
+            If(And(Toggle1.Value,Toggle1_1.Value,Toggle1_3.Value),
+            ClearCollect(Col_InformeProyecto,Filter(Informe_Montajes_SP,Periodo=Dropdown2_3.SelectedText.Value,UdN=ComboBox1.Selected.Value,Sector=Dropdown2_6.Selected.Name)),
+            If(And(Toggle1.Value,Toggle1_1.Value,Toggle1_5.Value),
+            ClearCollect(Col_InformeProyecto,Filter(Informe_Montajes_SP,Periodo=Dropdown2_3.SelectedText.Value,UdN=ComboBox1.Selected.Value,Responsable=Dropdown2_7.Selected.Responsable)),
+            If(And(Toggle1.Value,Toggle1_2.Value,Toggle1_3.Value),
+            ClearCollect(Col_InformeProyecto,Filter(Informe_Montajes_SP,Periodo=Dropdown2_3.SelectedText.Value,Actividad=Dropdown2_5.SelectedText.Value,Sector=Dropdown2_6.Selected.Name)),
+            If(And(Toggle1.Value,Toggle1_2.Value,Toggle1_5.Value),
+            ClearCollect(Col_InformeProyecto,Filter(Informe_Montajes_SP,Periodo=Dropdown2_3.SelectedText.Value,Actividad=Dropdown2_5.SelectedText.Value,Responsable=Dropdown2_7.Selected.Responsable)),
+            If(And(Toggle1.Value,Toggle1_3.Value,Toggle1_5.Value),
+            ClearCollect(Col_InformeProyecto,Filter(Informe_Montajes_SP,Periodo=Dropdown2_3.SelectedText.Value,Sector=Dropdown2_6.Selected.Name,Responsable=Dropdown2_7.Selected.Responsable)),
+            If(And(Toggle1_1.Value,Toggle1_2.Value,Toggle1_3.Value),
+            ClearCollect(Col_InformeProyecto,Filter(Informe_Montajes_SP,UdN=ComboBox1.Selected.Value,Actividad=Dropdown2_5.SelectedText.Value,Sector=Dropdown2_6.Selected.Name)),
+            If(And(Toggle1_1.Value,Toggle1_2.Value,Toggle1_5.Value),
+            ClearCollect(Col_InformeProyecto,Filter(Informe_Montajes_SP,UdN=ComboBox1.Selected.Value,Actividad=Dropdown2_5.SelectedText.Value,Responsable=Dropdown2_7.Selected.Responsable)),
+            If(And(Toggle1_1.Value,Toggle1_3.Value,Toggle1_5.Value),
+            ClearCollect(Col_InformeProyecto,Filter(Informe_Montajes_SP,UdN=ComboBox1.Selected.Value,Sector=Dropdown2_6.Selected.Name,Responsable=Dropdown2_7.Selected.Responsable)),
+            If(And(Toggle1_2.Value,Toggle1_3.Value,Toggle1_5.Value),
+            ClearCollect(Col_InformeProyecto,Filter(Informe_Montajes_SP,Actividad=Dropdown2_5.SelectedText.Value,Sector=Dropdown2_6.Selected.Name,Responsable=Dropdown2_7.Selected.Responsable)),
+            If(And(Toggle1.Value,Toggle1_1.Value),
+            ClearCollect(Col_InformeProyecto,Filter(Informe_Montajes_SP,Periodo=Dropdown2_3.SelectedText.Value,UdN=ComboBox1.Selected.Value)),
+            If(And(Toggle1.Value,Toggle1_2.Value),
+            ClearCollect(Col_InformeProyecto,Filter(Informe_Montajes_SP,Periodo=Dropdown2_3.SelectedText.Value,Actividad=Dropdown2_5.SelectedText.Value)),
+            If(And(Toggle1.Value,Toggle1_3.Value),
+            ClearCollect(Col_InformeProyecto,Filter(Informe_Montajes_SP,Periodo=Dropdown2_3.SelectedText.Value,Sector=Dropdown2_6.Selected.Name)),
+            If(And(Toggle1.Value,Toggle1_5.Value),
+            ClearCollect(Col_InformeProyecto,Filter(Informe_Montajes_SP,Periodo=Dropdown2_3.SelectedText.Value,Responsable=Dropdown2_7.Selected.Responsable)),
+            If(And(Toggle1_1.Value,Toggle1_2.Value),
+            ClearCollect(Col_InformeProyecto,Filter(Informe_Montajes_SP,UdN=ComboBox1.Selected.Value,Actividad=Dropdown2_5.SelectedText.Value)),
+            If(And(Toggle1_1.Value,Toggle1_3.Value),
+            ClearCollect(Col_InformeProyecto,Filter(Informe_Montajes_SP,UdN=ComboBox1.Selected.Value,Sector=Dropdown2_6.Selected.Name)),
+            If(And(Toggle1_1.Value,Toggle1_5.Value),
+            ClearCollect(Col_InformeProyecto,Filter(Informe_Montajes_SP,UdN=ComboBox1.Selected.Value,Responsable=Dropdown2_7.Selected.Responsable)),
+            If(And(Toggle1_2.Value,Toggle1_3.Value),
+            ClearCollect(Col_InformeProyecto,Filter(Informe_Montajes_SP,Actividad=Dropdown2_5.SelectedText.Value,Sector=Dropdown2_6.Selected.Name)),
+            If(And(Toggle1_2.Value,Toggle1_5.Value),
+            ClearCollect(Col_InformeProyecto,Filter(Informe_Montajes_SP,Actividad=Dropdown2_5.SelectedText.Value,Responsable=Dropdown2_7.Selected.Responsable)),
+            If(And(Toggle1_3.Value,Toggle1_5.Value),
+            ClearCollect(Col_InformeProyecto,Filter(Informe_Montajes_SP,Sector=Dropdown2_6.Selected.Name,Responsable=Dropdown2_7.Selected.Responsable)),
+            If(Toggle1.Value,
+            ClearCollect(Col_InformeProyecto,Filter(Informe_Montajes_SP,Periodo=Dropdown2_3.SelectedText.Value)),
+            If(Toggle1_1.Value,
+            ClearCollect(Col_InformeProyecto,Filter(Informe_Montajes_SP,UdN=ComboBox1.Selected.Value)),
+            If(Toggle1_2.Value,
+            ClearCollect(Col_InformeProyecto,Filter(Informe_Montajes_SP,Actividad=Dropdown2_5.SelectedText.Value)),
+            If(Toggle1_3.Value,
+            ClearCollect(Col_InformeProyecto,Filter(Informe_Montajes_SP,Sector=Dropdown2_6.Selected.Name)),
+            If(Toggle1_5.Value,
+            ClearCollect(Col_InformeProyecto,Filter(Informe_Montajes_SP,Responsable=Dropdown2_7.Selected.Responsable)),
+            false
+            )))))))))))))))))))))))))))))));
+            Set(EstadoEditar,DisplayMode.View);
+            Set(EditarInforme,true);
+            Set(Freeze,true);Set(FreezeX,5);Set(XShort,0);Set(XMed,0);Set(XLarge,0);Set(XXLarge,0);Set(GalleryWidth,1365);
+            Reset(Dropdown2_3);Reset(Toggle2)
+        Text: ="Informe Proyecto"
+        Width: =215
+        X: =200
+        Y: =5
+        ZIndex: =25
+
+    Label8 As label:
+        Height: =10
+        Size: =8
+        Text: |-
+            ="Comentarios: "&CountRows(col_Comentarios)&" Completo: "&CountRows(col_InformeCompleto)&" Montajes: "&CountRows(col_Montajes)&" RUN: "&CountRows(col_RUN)&" Controlling: "&CountRows(col_controlling)&" Proyectos: "&CountRows(Col_InformeProyecto)&" Actividades: "&CountRows(col_Actividad)
+        Width: =1366
+        Y: =758
+        ZIndex: =26
+
+    Icon9 As icon.Add:
+        Icon: =Icon.Reload
+        OnSelect: |-
+            =ClearCollect(col_Actividad,SAP_ACTIVIDADES);
+            ClearCollect(col_Montajes,ShowColumns(SAP_Montajes,"Proyecto","Name","CardName","Actividad","Start","Cierre","Lugar","Margeninic","Factinic","Sector","Cliente","Status","UdN","UdNegocio","Responsable"));
+            ClearCollect(col_InformeCompleto,Sort(Informe_Montajes_SP,ID,Descending));
+            ClearCollect(col_Comentarios,Sort(Informe_Montajes_Comentarios_SP,ID,Descending))
+        X: =29
+        Y: =16
+        ZIndex: =27
+
+    Label20 As label:
+        Height: =30
+        Text: |
+            =If(Month(Today())<9,
+            Value(Year(Today())&"00"&Month(Today())),
+            Value(Year(Today())&"0"&Month(Today())))
+        Visible: =false
+        Width: =84
+        X: =105
+        ZIndex: =28
+
+    Label20_1 As label:
+        Height: =30
+        Text: |
+            =If(Month(Today())>1,Label20-1,Label20-989)
+        Visible: =false
+        Width: =84
+        X: =105
+        Y: =30
+        ZIndex: =29
+
